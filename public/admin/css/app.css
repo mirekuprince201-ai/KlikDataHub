@@ -1,0 +1,899 @@
+/* ==========================================================
+   GLOBAL RESET
+========================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==========================================================
+   ROOT VARIABLES
+========================================================== */
+
+:root {
+    --kd-body-bg: #f4f7fb;
+    --kd-card-bg: #ffffff;
+    --kd-topbar-bg: #ffffff;
+    --kd-text-main: #071327;
+    --kd-text-muted: #64748b;
+    --kd-border: rgba(15, 23, 42, 0.10);
+    --kd-shadow: 0 18px 45px rgba(15, 23, 42, 0.08);
+
+    --kd-sidebar-width: 290px;
+    --kd-sidebar-collapsed-width: 80px;
+    --kd-topbar-height: 88px;
+    --kd-footer-height: 64px;
+
+    --kd-layout-speed: .28s;
+}
+
+/* ==========================================================
+   DARK MODE
+========================================================== */
+
+html[data-theme="dark"] {
+    --kd-body-bg: #07111f;
+    --kd-card-bg: #101827;
+    --kd-topbar-bg: #0f172a;
+    --kd-text-main: #ffffff;
+    --kd-text-muted: #94a3b8;
+    --kd-border: rgba(255, 255, 255, 0.09);
+    --kd-shadow: none;
+}
+
+/* ==========================================================
+   GLOBAL FONT
+========================================================== */
+
+html,
+body,
+button,
+input,
+select,
+textarea,
+table,
+th,
+td,
+a,
+span,
+label,
+p,
+div,
+li,
+small,
+strong {
+    font-family: "Space Grotesk", sans-serif !important;
+}
+
+/* ==========================================================
+   BODY
+========================================================== */
+
+html,
+body {
+    width: 100%;
+    min-width: 320px;
+    min-height: 100%;
+    background: var(--kd-body-bg);
+    color: var(--kd-text-main);
+    overflow-x: hidden;
+    overflow-y: auto;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    min-height: 100vh;
+}
+
+body.kd-sidebar-open,
+body.kd-modal-open {
+    overflow: hidden !important;
+}
+
+/* ==========================================================
+   TYPOGRAPHY
+========================================================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    color: var(--kd-text-main);
+    line-height: 1.1;
+}
+
+h1 { font-size: 2rem; }
+h2 { font-size: 1.75rem; }
+h3 { font-size: 1.5rem; }
+h4 { font-size: 1.25rem; }
+h5 { font-size: 1.125rem; }
+h6 { font-size: 1rem; }
+
+p,
+span,
+td,
+label,
+li {
+    font-weight: 500;
+}
+
+strong,
+b {
+    font-weight: 700;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ==========================================================
+   MAIN LAYOUT
+========================================================== */
+
+.admin-wrapper {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    background: var(--kd-body-bg);
+    overflow: visible !important;
+}
+
+.admin-main {
+    width: calc(100% - var(--kd-sidebar-width));
+    margin-left: var(--kd-sidebar-width);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    background: var(--kd-body-bg);
+    overflow: visible !important;
+    transition:
+        width var(--kd-layout-speed) ease,
+        margin-left var(--kd-layout-speed) ease,
+        background .25s ease;
+}
+
+.admin-content {
+    flex: 1;
+    width: 100%;
+    min-height: 100vh;
+    padding:
+        calc(var(--kd-topbar-height) + 30px)
+        30px
+        calc(var(--kd-footer-height) + 40px)
+        30px;
+    background: var(--kd-body-bg);
+    overflow: visible !important;
+    position: relative;
+    z-index: 1;
+}
+
+/* ==========================================================
+   SIDEBAR COLLAPSE STATE
+========================================================== */
+
+body.sidebar-collapsed {
+    --kd-sidebar-width: var(--kd-sidebar-collapsed-width);
+}
+
+/* ==========================================================
+   FIXED TOPBAR
+========================================================== */
+
+.kd-topbar {
+    position: fixed !important;
+    top: 0 !important;
+    left: var(--kd-sidebar-width) !important;
+    right: 0 !important;
+    width: calc(100% - var(--kd-sidebar-width)) !important;
+    height: var(--kd-topbar-height) !important;
+    z-index: 1200 !important;
+    transition:
+        left var(--kd-layout-speed) ease,
+        width var(--kd-layout-speed) ease,
+        background .25s ease,
+        box-shadow .25s ease !important;
+}
+
+/* ==========================================================
+   FIXED FOOTER
+========================================================== */
+
+.kd-footer {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: var(--kd-sidebar-width) !important;
+    right: 0 !important;
+    width: calc(100% - var(--kd-sidebar-width)) !important;
+    height: var(--kd-footer-height) !important;
+    min-height: var(--kd-footer-height) !important;
+    padding: 0 28px !important;
+    background: var(--kd-topbar-bg) !important;
+    border-top: 1px solid var(--kd-border) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 20px !important;
+    color: var(--kd-text-muted) !important;
+    font-size: 13px !important;
+    font-weight: 800 !important;
+    z-index: 1100 !important;
+    margin: 0 !important;
+    flex-shrink: 0 !important;
+    transition:
+        left var(--kd-layout-speed) ease,
+        width var(--kd-layout-speed) ease,
+        background .25s ease,
+        border-color .25s ease !important;
+}
+
+.kd-footer-left,
+.kd-footer-right {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    min-width: 0 !important;
+}
+
+.kd-footer-left p {
+    margin: 0 !important;
+    white-space: nowrap !important;
+}
+
+.kd-footer-left span {
+    color: var(--kd-text-main) !important;
+    padding-left: 12px !important;
+    border-left: 1px solid var(--kd-border) !important;
+    font-weight: 900 !important;
+    white-space: nowrap !important;
+}
+
+.kd-footer-right span {
+    white-space: nowrap !important;
+}
+
+.kd-footer-right strong {
+    color: #2563eb !important;
+    font-weight: 900 !important;
+    white-space: nowrap !important;
+}
+
+html[data-theme="dark"] .kd-footer {
+    background: #0f172a !important;
+    border-top-color: rgba(255, 255, 255, .08) !important;
+}
+
+html[data-theme="dark"] .kd-footer-right strong {
+    color: #60a5fa !important;
+}
+
+/* ==========================================================
+   GLOBAL BUTTONS
+========================================================== */
+
+button {
+    font-family: "Space Grotesk", sans-serif;
+    font-weight: 600;
+}
+
+/* ==========================================================
+   TABLES
+========================================================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th {
+    font-weight: 700;
+    color: var(--kd-text-main);
+}
+
+table td {
+    font-weight: 500;
+}
+
+/* ==========================================================
+   FORMS
+========================================================== */
+
+input,
+select,
+textarea {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+input::placeholder,
+textarea::placeholder {
+    font-weight: 500;
+    color: #94a3b8;
+}
+
+/* ==========================================================
+   SIDEBAR TYPOGRAPHY
+========================================================== */
+
+.kd-sidebar-link,
+.kd-sidebar-dropdown-btn,
+.kd-sidebar-submenu-link {
+    font-weight: 600;
+}
+
+.kd-sidebar-submenu-link {
+    font-size: 13px;
+}
+
+/* ==========================================================
+   TOPBAR TYPOGRAPHY
+========================================================== */
+
+.kd-topbar-user strong,
+.kd-profile-head strong {
+    font-weight: 700;
+}
+
+.kd-topbar-date strong {
+    font-weight: 700;
+}
+
+/* ==========================================================
+   CARDS
+========================================================== */
+
+.card,
+.kd-card {
+    background: var(--kd-card-bg);
+    border-radius: 18px;
+    border: 1px solid var(--kd-border);
+    box-shadow: var(--kd-shadow);
+}
+
+/* ==========================================================
+   DATATABLES / SELECT2 / TOMSELECT / MODALS
+========================================================== */
+
+.dataTables_wrapper,
+.dataTables_wrapper *,
+.select2-container,
+.select2-container *,
+.ts-wrapper,
+.ts-wrapper *,
+.modal,
+.modal * {
+    font-family: "Space Grotesk", sans-serif !important;
+}
+
+/* ==========================================================
+   PAGE MODALS AND DRAWERS MUST BE ABOVE TOPBAR/FOOTER
+========================================================== */
+
+.kd-category-sidebar,
+.kd-category-sidebar-backdrop,
+.kd-category-modal,
+.kd-delete-modal,
+#deleteCategoryModal {
+    isolation: isolate;
+}
+
+/* ==========================================================
+   PROFESSIONAL NOTYF TOASTS
+========================================================== */
+
+.notyf {
+    z-index: 9999999 !important;
+    padding: 24px !important;
+}
+
+.notyf__toast {
+    width: 430px !important;
+    max-width: calc(100vw - 32px) !important;
+    min-height: 78px !important;
+    border-radius: 18px !important;
+    padding: 0 !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    box-shadow: 0 24px 70px rgba(15, 23, 42, .14) !important;
+    overflow: hidden !important;
+    border: 1px solid rgba(15, 23, 42, .06) !important;
+}
+
+.notyf__wrapper {
+    width: 100% !important;
+    min-height: 78px !important;
+    padding: 18px 54px 18px 22px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 16px !important;
+}
+
+.notyf__icon {
+    width: 42px !important;
+    height: 42px !important;
+    min-width: 42px !important;
+    border-radius: 999px !important;
+    margin: 0 !important;
+    display: grid !important;
+    place-items: center !important;
+}
+
+.notyf__icon i {
+    font-size: 15px !important;
+}
+
+.notyf__message {
+    width: 100% !important;
+    color: #475569 !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    line-height: 1.35 !important;
+}
+
+.kd-toast-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+
+.kd-toast-content strong {
+    color: #0f172a !important;
+    font-size: 15px !important;
+    font-weight: 700 !important;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+}
+
+.kd-toast-content span {
+    color: #475569 !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    line-height: 1.3;
+}
+
+.notyf__dismiss {
+    width: 34px !important;
+    height: 34px !important;
+    top: 22px !important;
+    right: 16px !important;
+    border-radius: 999px !important;
+    background: #f1f5f9 !important;
+    opacity: 1 !important;
+}
+
+.notyf__dismiss-btn {
+    width: 34px !important;
+    height: 34px !important;
+    border-radius: 999px !important;
+    opacity: 1 !important;
+    position: relative !important;
+}
+
+.notyf__dismiss-btn::before,
+.notyf__dismiss-btn::after {
+    background: #64748b !important;
+    width: 14px !important;
+    height: 2px !important;
+    top: 16px !important;
+    left: 10px !important;
+}
+
+.kd-toast-success {
+    border-left: 5px solid #22c55e !important;
+}
+
+.kd-toast-success .notyf__icon {
+    background: rgba(34, 197, 94, .14) !important;
+}
+
+.kd-toast-error {
+    border-left: 5px solid #ef4444 !important;
+}
+
+.kd-toast-error .notyf__icon {
+    background: rgba(239, 68, 68, .14) !important;
+}
+
+.kd-toast-warning {
+    border-left: 5px solid #f59e0b !important;
+}
+
+.kd-toast-warning .notyf__icon {
+    background: rgba(245, 158, 11, .16) !important;
+}
+
+.kd-toast-info {
+    border-left: 5px solid #2563eb !important;
+}
+
+.kd-toast-info .notyf__icon {
+    background: rgba(37, 99, 235, .14) !important;
+}
+
+html[data-theme="dark"] .notyf__toast {
+    background: #111c33 !important;
+    color: #ffffff !important;
+    border-color: rgba(255, 255, 255, .08) !important;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, .35) !important;
+}
+
+html[data-theme="dark"] .kd-toast-content strong {
+    color: #ffffff !important;
+}
+
+html[data-theme="dark"] .kd-toast-content span,
+html[data-theme="dark"] .notyf__message {
+    color: #cbd5e1 !important;
+}
+
+html[data-theme="dark"] .notyf__dismiss {
+    background: rgba(255, 255, 255, .08) !important;
+}
+
+html[data-theme="dark"] .notyf__dismiss-btn::before,
+html[data-theme="dark"] .notyf__dismiss-btn::after {
+    background: #cbd5e1 !important;
+}
+
+/* ==========================================================
+   TABLET
+========================================================== */
+
+@media (max-width: 991px) {
+    :root {
+        --kd-sidebar-width: 0px;
+        --kd-topbar-height: 80px;
+        --kd-footer-height: 58px;
+    }
+
+    .admin-main,
+    body.sidebar-collapsed .admin-main {
+        width: 100% !important;
+        margin-left: 0 !important;
+    }
+
+    .kd-topbar,
+    body.sidebar-collapsed .kd-topbar,
+    .kd-footer,
+    body.sidebar-collapsed .kd-footer {
+        left: 0 !important;
+        width: 100% !important;
+    }
+
+    .kd-footer {
+        height: var(--kd-footer-height) !important;
+        min-height: var(--kd-footer-height) !important;
+        padding: 0 20px !important;
+        font-size: 12px !important;
+        gap: 12px !important;
+    }
+
+    .admin-content {
+        padding:
+            calc(var(--kd-topbar-height) + 22px)
+            22px
+            calc(var(--kd-footer-height) + 30px)
+            22px;
+    }
+
+    .kd-footer-left,
+    .kd-footer-right {
+        gap: 10px !important;
+    }
+
+    .kd-footer-left span {
+        padding-left: 10px !important;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.55rem;
+    }
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 768px) {
+    :root {
+        --kd-topbar-height: 74px;
+        --kd-footer-height: 58px;
+    }
+
+    html,
+    body {
+        font-size: 13px;
+    }
+
+    .admin-content {
+        padding:
+            calc(var(--kd-topbar-height) + 18px)
+            18px
+            calc(var(--kd-footer-height) + 26px)
+            18px;
+    }
+
+    .kd-footer {
+        padding: 0 16px !important;
+        font-size: 11.5px !important;
+    }
+
+    .kd-footer-left,
+    .kd-footer-right {
+        gap: 8px !important;
+    }
+
+    .kd-footer-left span {
+        padding-left: 8px !important;
+    }
+
+    .kd-footer-right strong {
+        font-size: 11.5px !important;
+    }
+
+    .notyf {
+        width: 100% !important;
+        left: 0 !important;
+        right: 0 !important;
+        padding: 14px !important;
+    }
+
+    .notyf__toast {
+        width: 100% !important;
+        max-width: 100% !important;
+        min-height: 72px !important;
+        border-radius: 16px !important;
+    }
+
+    .notyf__wrapper {
+        min-height: 72px !important;
+        padding: 16px 50px 16px 18px !important;
+        gap: 13px !important;
+    }
+
+    .notyf__icon {
+        width: 38px !important;
+        height: 38px !important;
+        min-width: 38px !important;
+    }
+
+    .kd-toast-content strong {
+        font-size: 14px !important;
+    }
+
+    .kd-toast-content span {
+        font-size: 13px !important;
+    }
+
+    .notyf__dismiss {
+        top: 19px !important;
+        right: 13px !important;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    h2 {
+        font-size: 1.4rem;
+    }
+}
+
+/* ==========================================================
+   SMALL MOBILE
+========================================================== */
+
+@media (max-width: 576px) {
+    :root {
+        --kd-topbar-height: 68px;
+        --kd-footer-height: 54px;
+    }
+
+    .admin-wrapper,
+    .admin-main,
+    .admin-content {
+        background: var(--kd-body-bg) !important;
+    }
+
+    .admin-content {
+        padding:
+            calc(var(--kd-topbar-height) + 16px)
+            16px
+            calc(var(--kd-footer-height) + 24px)
+            16px;
+    }
+
+    .kd-footer {
+        padding: 0 14px !important;
+        font-size: 10px !important;
+        gap: 8px !important;
+    }
+
+    .kd-footer-left,
+    .kd-footer-right {
+        gap: 6px !important;
+    }
+
+    .kd-footer-left span {
+        padding-left: 6px !important;
+    }
+
+    .kd-footer-right strong {
+        font-size: 10px !important;
+    }
+
+    .notyf {
+        padding: 10px !important;
+    }
+
+    .notyf__toast {
+        border-radius: 15px !important;
+    }
+
+    .notyf__wrapper {
+        padding: 14px 46px 14px 16px !important;
+    }
+
+    .notyf__icon {
+        width: 36px !important;
+        height: 36px !important;
+        min-width: 36px !important;
+    }
+
+    .kd-toast-content strong {
+        font-size: 13px !important;
+    }
+
+    .kd-toast-content span {
+        font-size: 12px !important;
+    }
+
+    h1 {
+        font-size: 1.45rem;
+    }
+
+    h2 {
+        font-size: 1.25rem;
+    }
+}
+
+/* ==========================================================
+   SMALL PHONES
+========================================================== */
+
+@media (max-width: 420px) {
+    .kd-footer {
+        padding: 0 12px !important;
+        font-size: 9px !important;
+    }
+
+    .kd-footer-left,
+    .kd-footer-right {
+        gap: 5px !important;
+    }
+
+    .kd-footer-left span {
+        padding-left: 5px !important;
+    }
+
+    .kd-footer-right strong {
+        font-size: 9px !important;
+    }
+}
+
+/* ==========================================================
+   EXTRA SMALL DEVICES
+========================================================== */
+
+@media (max-width: 380px) {
+    :root {
+        --kd-topbar-height: 64px;
+        --kd-footer-height: 50px;
+    }
+
+    html,
+    body {
+        font-size: 12px;
+    }
+
+    .admin-content {
+        padding:
+            calc(var(--kd-topbar-height) + 14px)
+            14px
+            calc(var(--kd-footer-height) + 22px)
+            14px;
+    }
+
+    .kd-footer {
+        padding: 0 10px !important;
+        font-size: 8px !important;
+    }
+
+    .kd-footer-right strong {
+        font-size: 8px !important;
+    }
+
+    .kd-footer-left span {
+        border-left: none !important;
+        padding-left: 0 !important;
+    }
+
+    .notyf__wrapper {
+        padding: 13px 44px 13px 14px !important;
+        gap: 10px !important;
+    }
+
+    .notyf__icon {
+        width: 34px !important;
+        height: 34px !important;
+        min-width: 34px !important;
+    }
+
+    h1 {
+        font-size: 1.3rem;
+    }
+
+    h2 {
+        font-size: 1.15rem;
+    }
+}
+
+/* ==========================================================
+   FIX FONT AWESOME ICONS NOT SHOWING
+========================================================== */
+
+i.fa,
+i.fas,
+i.far,
+i.fab,
+i.fa-solid,
+i.fa-regular,
+i.fa-brands,
+.fa,
+.fas,
+.far,
+.fab,
+.fa-solid,
+.fa-regular,
+.fa-brands {
+    font-style: normal !important;
+    font-variant: normal !important;
+    line-height: 1 !important;
+    text-rendering: auto !important;
+    -webkit-font-smoothing: antialiased !important;
+    display: inline-block !important;
+}
+
+.fa,
+.fa-solid,
+.fas {
+    font-family: "Font Awesome 6 Free" !important;
+    font-weight: 900 !important;
+}
+
+.fa-regular,
+.far {
+    font-family: "Font Awesome 6 Free" !important;
+    font-weight: 400 !important;
+}
+
+.fa-brands,
+.fab {
+    font-family: "Font Awesome 6 Brands" !important;
+    font-weight: 400 !important;
+}

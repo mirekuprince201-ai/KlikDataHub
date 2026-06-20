@@ -1,0 +1,375 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter, Arial, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, .18), transparent 35%),
+        linear-gradient(135deg, #020617 0%, #07142c 48%, #0f172a 100%);
+    color: #0f172a;
+}
+
+.kd-register-page {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 28px 16px;
+}
+
+.kd-register-card {
+    width: min(520px, 100%);
+    background: #ffffff;
+    border-radius: 28px;
+    padding: 34px;
+    box-shadow: 0 30px 90px rgba(0, 0, 0, .35);
+    border: 1px solid rgba(226, 232, 240, .9);
+}
+
+.kd-register-header {
+    text-align: center;
+    margin-bottom: 26px;
+}
+
+.kd-register-logo {
+    width: 62px;
+    height: 62px;
+    border-radius: 20px;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    color: #ffffff;
+    display: grid;
+    place-items: center;
+    font-size: 26px;
+    margin: 0 auto 16px;
+    box-shadow: 0 18px 35px rgba(37, 99, 235, .25);
+}
+
+.kd-register-header h1 {
+    font-size: 30px;
+    font-weight: 950;
+    letter-spacing: -1px;
+    color: #0f172a;
+    margin-bottom: 6px;
+}
+
+.kd-register-header p {
+    font-size: 14px;
+    color: #64748b;
+    font-weight: 700;
+    line-height: 1.55;
+}
+
+.kd-auth-alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 13px 14px;
+    border-radius: 16px;
+    margin-bottom: 18px;
+    background: rgba(220, 38, 38, .08);
+    border: 1px solid rgba(220, 38, 38, .16);
+    color: #b91c1c;
+    font-size: 13px;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+.kd-auth-alert i {
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.kd-auth-success {
+    background: rgba(22, 163, 74, .10) !important;
+    border-color: rgba(22, 163, 74, .18) !important;
+    color: #15803d !important;
+}
+
+.kd-register-form {
+    display: grid;
+    gap: 15px;
+}
+
+.kd-form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+}
+
+.kd-form-group {
+    display: grid;
+    gap: 7px;
+}
+
+.kd-form-group label {
+    color: #334155;
+    font-size: 12px;
+    font-weight: 950;
+}
+
+.kd-input-wrap {
+    height: 50px;
+    border-radius: 16px;
+    background: #f8fafc;
+    border: 1px solid rgba(15, 23, 42, .12);
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 0 14px;
+    transition: .25s ease;
+}
+
+.kd-input-wrap:focus-within {
+    background: #ffffff;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, .10);
+}
+
+.kd-input-wrap > i {
+    color: #2563eb;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.kd-input-wrap input {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: #0f172a;
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.kd-input-wrap input::placeholder {
+    color: #94a3b8;
+    font-weight: 650;
+}
+
+.kd-password-toggle {
+    width: 34px;
+    height: 34px;
+    border: 0;
+    background: transparent;
+    color: #64748b;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    flex-shrink: 0;
+}
+
+.kd-password-toggle:hover {
+    background: rgba(37, 99, 235, .08);
+    color: #2563eb;
+}
+
+.kd-form-group small {
+    color: #dc2626;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.kd-auth-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    margin: 4px 0 2px;
+    font-size: 14px;
+}
+
+.kd-auth-options label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #64748b;
+    cursor: pointer;
+    user-select: none;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.kd-auth-options input[type="checkbox"] {
+    width: 15px;
+    height: 15px;
+    accent-color: #2563eb;
+}
+
+.kd-forgot-link {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 900;
+    white-space: nowrap;
+    font-size: 13px;
+}
+
+.kd-forgot-link:hover {
+    color: #1d4ed8;
+    text-decoration: underline;
+}
+
+.kd-auth-btn {
+    height: 52px;
+    border: 0;
+    border-radius: 17px;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 950;
+    box-shadow: 0 18px 35px rgba(37, 99, 235, .28);
+    transition: .25s ease;
+    margin-top: 4px;
+    text-decoration: none;
+}
+
+.kd-auth-btn:hover:not(:disabled) {
+    transform: translateY(-2px);
+    box-shadow: 0 22px 42px rgba(37, 99, 235, .35);
+}
+
+.kd-auth-btn:disabled {
+    cursor: not-allowed;
+    opacity: .75;
+}
+
+.kd-auth-link {
+    text-align: center;
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 800;
+    margin-top: 4px;
+}
+
+.kd-auth-link a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: 950;
+}
+
+.kd-auth-link a:hover {
+    text-decoration: underline;
+}
+
+.kd-unavailable-card {
+    text-align: center;
+}
+
+.kd-warning-logo {
+    background: linear-gradient(135deg, #f59e0b, #ef4444) !important;
+}
+
+.kd-unavailable-box {
+    display: grid;
+    gap: 12px;
+    margin-top: 22px;
+}
+
+.kd-unavailable-box div {
+    min-height: 48px;
+    border-radius: 16px;
+    background: #f8fafc;
+    border: 1px solid rgba(15, 23, 42, .10);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    color: #334155;
+    font-size: 14px;
+    font-weight: 850;
+}
+
+.kd-unavailable-box i {
+    color: #2563eb;
+}
+
+.kd-unavailable-btn {
+    width: 100%;
+    margin-top: 18px;
+    text-decoration: none;
+}
+
+/* Forgot password / OTP pages */
+.kd-otp-input {
+    text-align: center;
+    letter-spacing: 8px;
+    font-size: 20px !important;
+    font-weight: 950 !important;
+}
+
+.kd-otp-note {
+    background: rgba(37, 99, 235, .08);
+    border: 1px solid rgba(37, 99, 235, .14);
+    color: #1e40af;
+    border-radius: 16px;
+    padding: 12px 14px;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.55;
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+}
+
+.kd-otp-note i {
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+.kd-reset-security {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    background: #f8fafc;
+    border: 1px solid rgba(15, 23, 42, .10);
+    border-radius: 16px;
+    padding: 12px 14px;
+    color: #475569;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.55;
+}
+
+.kd-reset-security i {
+    color: #2563eb;
+    margin-top: 3px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 560px) {
+    .kd-register-page {
+        padding: 20px 12px;
+    }
+
+    .kd-register-card {
+        padding: 28px 20px;
+        border-radius: 24px;
+    }
+
+    .kd-form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .kd-register-header h1 {
+        font-size: 26px;
+    }
+
+    .kd-auth-options {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .kd-forgot-link {
+        font-size: 13px;
+    }
+}

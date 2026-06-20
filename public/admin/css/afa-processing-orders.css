@@ -1,0 +1,441 @@
+.kd-processing-orders-page {
+    padding: 22px;
+}
+
+.kd-orders-card {
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+.kd-orders-card-header {
+    gap: 18px;
+    align-items: center;
+}
+
+.kd-orders-card-header h4 {
+    font-size: 22px;
+    font-weight: 950;
+    letter-spacing: -0.03em;
+}
+
+.kd-orders-card-header p {
+    font-size: 13px;
+    font-weight: 750;
+    color: #64748b;
+}
+
+.kd-orders-header-right {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.kd-processing-summary {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.kd-processing-summary-item {
+    min-width: 118px;
+}
+
+#processingAfaOrdersButtons .dt-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.kd-export-btn {
+    border: none !important;
+    border-radius: 14px !important;
+    padding: 13px 18px !important;
+    font-size: 12px !important;
+    font-weight: 900 !important;
+    box-shadow: none !important;
+}
+
+.kd-export-btn.copy {
+    background: rgba(37, 99, 235, .10) !important;
+    color: #2563eb !important;
+}
+
+.kd-export-btn.excel {
+    background: linear-gradient(135deg, #2563eb, #4f46e5) !important;
+    color: #ffffff !important;
+}
+
+.kd-orders-toolbar {
+    display: flex;
+    align-items: end;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.kd-filter-box {
+    min-width: 280px;
+}
+
+.kd-filter-box label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 11px;
+    font-weight: 950;
+    color: #475569;
+    text-transform: uppercase;
+}
+
+.ts-wrapper {
+    width: 100% !important;
+}
+
+.ts-control {
+    min-height: 48px !important;
+    padding: 0 16px !important;
+    border-radius: 16px !important;
+    border: 1px solid #dbe4f0 !important;
+    background: #ffffff !important;
+    color: #0f172a !important;
+    box-shadow: none !important;
+    display: flex !important;
+    align-items: center !important;
+}
+
+.ts-control .item {
+    font-size: 13px !important;
+    font-weight: 950 !important;
+}
+
+.ts-dropdown {
+    margin-top: 8px !important;
+    padding: 8px !important;
+    border-radius: 18px !important;
+    border: 1px solid #dbe4f0 !important;
+    background: #ffffff !important;
+    box-shadow: 0 24px 70px rgba(15, 23, 42, .14) !important;
+    z-index: 9999 !important;
+}
+
+.ts-dropdown .option {
+    padding: 12px 14px !important;
+    border-radius: 14px !important;
+    color: #0f172a !important;
+    font-size: 13px !important;
+    font-weight: 850 !important;
+}
+
+.ts-dropdown .active,
+.ts-dropdown .option:hover {
+    background: #2563eb !important;
+    color: #ffffff !important;
+}
+
+#processingAfaOrdersLength label,
+#processingAfaOrdersSearch label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin: 0;
+    font-size: 13px;
+    font-weight: 850;
+    color: #334155;
+}
+
+#processingAfaOrdersLength select {
+    min-height: 38px;
+    min-width: 72px;
+    border-radius: 10px;
+    border: 1px solid #dbe4f0;
+    padding: 0 8px;
+    outline: none;
+    font-weight: 850;
+}
+
+#processingAfaOrdersSearch input {
+    min-height: 44px;
+    min-width: 300px;
+    border-radius: 16px;
+    border: 1px solid #dbe4f0;
+    padding: 0 16px;
+    outline: none;
+    font-weight: 800;
+}
+
+#processingAfaOrdersSearch input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, .10);
+}
+
+.kd-afa-scroll-table {
+    width: 100%;
+    overflow: hidden;
+}
+
+.kd-orders-table {
+    width: 100% !important;
+    min-width: 1420px !important;
+    border-collapse: separate !important;
+    border-spacing: 0 8px !important;
+}
+
+.dataTables_scroll {
+    width: 100%;
+}
+
+.dataTables_scrollBody {
+    border: 0 !important;
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+    max-height: none !important;
+    height: auto !important;
+    scrollbar-width: thin;
+    scrollbar-color: #94a3b8 #f1f5f9;
+}
+
+.dataTables_scrollBody::-webkit-scrollbar {
+    height: 10px;
+}
+
+.dataTables_scrollBody::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 999px;
+}
+
+.dataTables_scrollBody::-webkit-scrollbar-thumb {
+    background: #94a3b8;
+    border-radius: 999px;
+}
+
+.dataTables_scrollHead {
+    overflow: hidden !important;
+}
+
+.kd-orders-table thead th {
+    background: #f8fafc !important;
+    color: #475569 !important;
+    font-size: 11px !important;
+    font-weight: 950 !important;
+    text-transform: uppercase;
+    border: 0 !important;
+    padding: 14px 12px !important;
+    white-space: nowrap;
+}
+
+.kd-orders-table tbody tr {
+    background: #ffffff !important;
+    box-shadow: 0 1px 0 rgba(15, 23, 42, .08);
+}
+
+.kd-orders-table tbody td {
+    background: #ffffff !important;
+    border-top: 1px solid #e2e8f0 !important;
+    border-bottom: 1px solid #e2e8f0 !important;
+    padding: 16px 12px !important;
+    font-size: 12px !important;
+    font-weight: 850 !important;
+    white-space: nowrap;
+    vertical-align: middle;
+}
+
+.kd-orders-table tbody td:first-child {
+    border-left: 1px solid #e2e8f0 !important;
+    border-radius: 16px 0 0 16px;
+}
+
+.kd-orders-table tbody td:last-child {
+    border-right: 1px solid #e2e8f0 !important;
+    border-radius: 0 16px 16px 0;
+}
+
+.kd-orders-table small {
+    display: block;
+    margin-top: 6px;
+    color: #64748b;
+    font-size: 10px;
+    font-weight: 800;
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.kd-order-ref,
+.kd-phone,
+.kd-data-size {
+    color: #2563eb;
+    font-weight: 950;
+}
+
+.kd-amount {
+    color: #059669;
+    font-weight: 950;
+}
+
+.kd-status-pill.paid {
+    background: rgba(22, 163, 74, .12) !important;
+    color: #16a34a !important;
+}
+
+.kd-status-pill.processing {
+    background: rgba(245, 158, 11, .14) !important;
+    color: #d97706 !important;
+}
+
+.kd-method-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 170px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 7px 12px;
+    border-radius: 999px;
+    background: rgba(99, 102, 241, .12);
+    color: #4f46e5;
+    font-size: 10px;
+    font-weight: 950;
+    white-space: nowrap;
+}
+
+.dataTables_info {
+    padding: 14px 0 0 !important;
+    font-size: 12px !important;
+    font-weight: 850 !important;
+    color: #64748b !important;
+}
+
+.dataTables_paginate {
+    padding: 10px 0 0 !important;
+}
+
+.dataTables_paginate .paginate_button {
+    border-radius: 12px !important;
+    border: 1px solid #dbe4f0 !important;
+    background: #ffffff !important;
+    color: #334155 !important;
+    font-weight: 850 !important;
+}
+
+.dataTables_paginate .paginate_button.current {
+    background: #2563eb !important;
+    color: #ffffff !important;
+    border-color: #2563eb !important;
+}
+
+body.dark-mode .kd-orders-card,
+html[data-theme="dark"] .kd-orders-card {
+    background: #0b1220 !important;
+    border-color: rgba(148, 163, 184, .16) !important;
+}
+
+body.dark-mode .kd-orders-card-header p,
+html[data-theme="dark"] .kd-orders-card-header p {
+    color: #94a3b8 !important;
+}
+
+body.dark-mode .kd-filter-box label,
+html[data-theme="dark"] .kd-filter-box label,
+body.dark-mode #processingAfaOrdersLength label,
+body.dark-mode #processingAfaOrdersSearch label,
+html[data-theme="dark"] #processingAfaOrdersLength label,
+html[data-theme="dark"] #processingAfaOrdersSearch label {
+    color: #cbd5e1 !important;
+}
+
+body.dark-mode .ts-control,
+html[data-theme="dark"] .ts-control,
+body.dark-mode #processingAfaOrdersSearch input,
+html[data-theme="dark"] #processingAfaOrdersSearch input,
+body.dark-mode #processingAfaOrdersLength select,
+html[data-theme="dark"] #processingAfaOrdersLength select {
+    background: #0f172a !important;
+    border: 1px solid rgba(148, 163, 184, .25) !important;
+    color: #f8fafc !important;
+}
+
+body.dark-mode .ts-control input,
+html[data-theme="dark"] .ts-control input,
+body.dark-mode .ts-control .item,
+html[data-theme="dark"] .ts-control .item {
+    color: #f8fafc !important;
+}
+
+body.dark-mode .ts-dropdown,
+html[data-theme="dark"] .ts-dropdown {
+    background: #111827 !important;
+    border: 1px solid rgba(148, 163, 184, .22) !important;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, .45) !important;
+}
+
+body.dark-mode .ts-dropdown .option,
+html[data-theme="dark"] .ts-dropdown .option {
+    color: #e5e7eb !important;
+}
+
+body.dark-mode .ts-dropdown .active,
+body.dark-mode .ts-dropdown .option:hover,
+html[data-theme="dark"] .ts-dropdown .active,
+html[data-theme="dark"] .ts-dropdown .option:hover {
+    background: #1d4ed8 !important;
+    color: #ffffff !important;
+}
+
+body.dark-mode #processingAfaOrdersSearch input::placeholder,
+html[data-theme="dark"] #processingAfaOrdersSearch input::placeholder {
+    color: #94a3b8 !important;
+}
+
+body.dark-mode .kd-orders-table thead th,
+html[data-theme="dark"] .kd-orders-table thead th {
+    background: #111827 !important;
+    color: #cbd5e1 !important;
+}
+
+body.dark-mode .kd-orders-table tbody tr,
+body.dark-mode .kd-orders-table tbody td,
+html[data-theme="dark"] .kd-orders-table tbody tr,
+html[data-theme="dark"] .kd-orders-table tbody td {
+    background: #0f172a !important;
+    border-color: rgba(148, 163, 184, .14) !important;
+    color: #f8fafc !important;
+}
+
+body.dark-mode .kd-orders-table small,
+html[data-theme="dark"] .kd-orders-table small {
+    color: #94a3b8 !important;
+}
+
+body.dark-mode .dataTables_scrollBody,
+html[data-theme="dark"] .dataTables_scrollBody {
+    scrollbar-color: #475569 #0f172a;
+}
+
+body.dark-mode .dataTables_scrollBody::-webkit-scrollbar-track,
+html[data-theme="dark"] .dataTables_scrollBody::-webkit-scrollbar-track {
+    background: #0f172a;
+}
+
+body.dark-mode .dataTables_scrollBody::-webkit-scrollbar-thumb,
+html[data-theme="dark"] .dataTables_scrollBody::-webkit-scrollbar-thumb {
+    background: #475569;
+}
+
+body.dark-mode .dataTables_info,
+html[data-theme="dark"] .dataTables_info {
+    color: #94a3b8 !important;
+}
+
+@media (max-width: 900px) {
+    .kd-orders-card-header,
+    .kd-orders-header-right {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .kd-filter-box,
+    #processingAfaOrdersSearch input {
+        width: 100%;
+        min-width: 100%;
+    }
+}

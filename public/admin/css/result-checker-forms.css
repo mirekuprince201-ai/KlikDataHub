@@ -1,0 +1,362 @@
+/* ==========================================================
+   KLIKDATA RESULT CHECKER FORMS ONLY
+========================================================== */
+
+.kd-checker-form {
+    width: 100%;
+}
+
+.kd-sidebar-form {
+    padding: 26px;
+}
+
+.kd-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.kd-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+.kd-form-group.kd-full {
+    grid-column: 1 / -1;
+}
+
+.kd-form-group label {
+    color: var(--kd-title);
+    font-size: 14px;
+    font-weight: 950;
+}
+
+.kd-form-group input,
+.kd-form-group select,
+.kd-form-group textarea {
+    width: 100%;
+    min-height: 52px;
+    border: 1px solid var(--kd-border);
+    border-radius: 16px;
+    background: var(--kd-input);
+    color: var(--kd-text);
+    padding: 14px 16px;
+    outline: none;
+    font-size: 15px;
+    font-weight: 800;
+    transition: .22s ease;
+}
+
+.kd-form-group textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.kd-form-group input::placeholder,
+.kd-form-group textarea::placeholder {
+    color: var(--kd-muted);
+}
+
+.kd-form-group input:focus,
+.kd-form-group select:focus,
+.kd-form-group textarea:focus {
+    border-color: rgba(37, 99, 235, .75);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, .14);
+}
+
+.kd-uppercase {
+    text-transform: uppercase;
+}
+
+/* SECTION TITLE */
+
+.kd-section-title {
+    padding: 16px;
+    border: 1px solid var(--kd-border);
+    border-radius: 18px;
+    background: rgba(37, 99, 235, .08);
+    margin-bottom: 14px;
+}
+
+.kd-section-title span {
+    color: #2563eb;
+    font-size: 12px;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: .06em;
+}
+
+.kd-section-title h4 {
+    margin: 5px 0 4px;
+    color: var(--kd-title);
+    font-size: 18px;
+    font-weight: 950;
+}
+
+.kd-section-title p {
+    margin: 0;
+    color: var(--kd-muted);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* ENTRY TABS */
+
+.kd-entry-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.kd-entry-tabs label {
+    cursor: pointer;
+    display: block;
+}
+
+.kd-entry-tabs input {
+    display: none !important;
+}
+
+.kd-entry-tabs span {
+    min-height: 58px;
+    width: 100%;
+    border-radius: 16px;
+    border: 1px solid var(--kd-border);
+    background: var(--kd-soft);
+    color: var(--kd-muted);
+    font-weight: 950;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: .25s ease;
+}
+
+.kd-entry-tabs input:checked + span {
+    color: #fff;
+    border-color: rgba(37, 99, 235, .85);
+    background: linear-gradient(135deg, var(--kd-primary), var(--kd-primary-2));
+    box-shadow: 0 12px 26px rgba(37, 99, 235, .24);
+}
+
+/* DISCOUNT REPEATER */
+
+.kd-discount-repeater {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.kd-discount-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 48px;
+    gap: 10px;
+    align-items: center;
+}
+
+.kd-remove-discount,
+.kd-add-discount,
+.kd-remove-voucher,
+.kd-add-voucher {
+    border: 0;
+    border-radius: 14px;
+    cursor: pointer;
+    font-weight: 900;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: .22s ease;
+}
+
+.kd-remove-discount,
+.kd-remove-voucher {
+    width: 48px;
+    height: 52px;
+    background: rgba(220, 38, 38, .13);
+    color: #dc2626;
+    border: 1px solid rgba(220, 38, 38, .20);
+}
+
+.kd-remove-discount:hover,
+.kd-remove-voucher:hover {
+    background: rgba(220, 38, 38, .22);
+    transform: translateY(-1px);
+}
+
+.kd-add-discount,
+.kd-add-voucher {
+    width: 100%;
+    margin-top: 10px;
+    padding: 13px 14px;
+    background: rgba(37, 99, 235, .12);
+    color: #2563eb;
+    border: 1px solid rgba(37, 99, 235, .20);
+}
+
+.kd-add-discount:hover,
+.kd-add-voucher:hover {
+    background: rgba(37, 99, 235, .18);
+    transform: translateY(-1px);
+}
+
+/* VOUCHER REPEATER */
+
+.kd-voucher-repeater {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.kd-voucher-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 48px;
+    gap: 10px;
+    align-items: center;
+}
+
+/* UPLOAD */
+
+.kd-upload-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 14px;
+}
+
+.kd-template-btn {
+    padding: 10px 13px;
+    background: rgba(22, 163, 74, .13);
+    color: #16a34a;
+    text-decoration: none;
+    font-size: 13px;
+    border: 1px solid rgba(22, 163, 74, .22);
+    border-radius: 14px;
+    font-weight: 900;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.kd-template-btn:hover {
+    background: rgba(22, 163, 74, .20);
+}
+
+.kd-upload-box {
+    position: relative;
+}
+
+.kd-upload-box input[type="file"] {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.kd-upload-label {
+    min-height: 138px;
+    border: 1.5px dashed rgba(37, 99, 235, .45);
+    border-radius: 18px;
+    background: rgba(37, 99, 235, .07);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    text-align: center;
+    padding: 20px;
+    transition: .25s ease;
+}
+
+.kd-upload-label:hover {
+    border-color: rgba(37, 99, 235, .85);
+    background: rgba(37, 99, 235, .12);
+}
+
+.kd-upload-label i {
+    font-size: 36px;
+    color: #16a34a;
+}
+
+.kd-upload-label strong {
+    color: var(--kd-title);
+    font-size: 16px;
+    font-weight: 950;
+}
+
+.kd-upload-label span {
+    color: var(--kd-muted);
+    font-size: 13px;
+    font-weight: 750;
+}
+
+/* ACTIONS */
+
+.kd-sidebar-actions {
+    position: sticky;
+    bottom: 0;
+    margin-top: 24px;
+    padding: 16px 0 0;
+    background: var(--kd-card);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    z-index: 4;
+}
+
+.kd-sidebar-actions button {
+    min-height: 52px;
+}
+
+/* DARK FIX */
+
+html[data-theme="dark"] .kd-section-title span,
+body.dark-mode .kd-section-title span,
+html[data-theme="dark"] .kd-add-discount,
+body.dark-mode .kd-add-discount,
+html[data-theme="dark"] .kd-add-voucher,
+body.dark-mode .kd-add-voucher {
+    color: #93c5fd;
+}
+
+html[data-theme="dark"] .kd-remove-discount,
+body.dark-mode .kd-remove-discount,
+html[data-theme="dark"] .kd-remove-voucher,
+body.dark-mode .kd-remove-voucher {
+    color: #fecaca;
+}
+
+html[data-theme="dark"] .kd-template-btn,
+body.dark-mode .kd-template-btn {
+    color: #86efac;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 768px) {
+    .kd-sidebar-form {
+        padding: 20px;
+    }
+
+    .kd-form-grid,
+    .kd-entry-tabs,
+    .kd-discount-row,
+    .kd-voucher-row {
+        grid-template-columns: 1fr;
+    }
+
+    .kd-remove-discount,
+    .kd-remove-voucher {
+        width: 100%;
+    }
+
+    .kd-upload-top {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .kd-sidebar-actions {
+        grid-template-columns: 1fr;
+    }
+}

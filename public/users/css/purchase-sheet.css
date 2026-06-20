@@ -1,0 +1,1134 @@
+/* ==========================================================
+   PURCHASE SHEET BACKDROP
+========================================================== */
+
+.kd-purchase-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(2, 6, 23, .78);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    opacity: 0;
+    visibility: hidden;
+    transition: all .3s ease;
+    z-index: 999998 !important;
+}
+
+.kd-purchase-backdrop.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+body.kd-sheet-open {
+    overflow: hidden !important;
+}
+
+/* ==========================================================
+   PURCHASE SHEET
+========================================================== */
+
+.kd-purchase-sheet {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: min(540px, 100%);
+    height: 100dvh;
+    background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, .12), transparent 28%),
+        linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    z-index: 999999 !important;
+    overflow-y: auto;
+    transform: translateX(105%);
+    transition: transform .35s ease;
+    box-shadow: -25px 0 90px rgba(15, 23, 42, .25);
+    padding: 24px;
+}
+
+.kd-purchase-sheet.show {
+    transform: translateX(0);
+}
+
+.kd-purchase-handle {
+    display: none;
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.kd-purchase-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+}
+
+.kd-purchase-network {
+    width: 62px;
+    height: 62px;
+    border-radius: 18px;
+    overflow: hidden;
+    flex-shrink: 0;
+    background: #ffffff;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, .08);
+}
+
+.kd-purchase-network img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.kd-purchase-heading-text {
+    min-width: 0;
+}
+
+.kd-purchase-header span {
+    display: block;
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+}
+
+.kd-purchase-header h2 {
+    color: #071327;
+    font-size: 26px;
+    font-weight: 950;
+    margin: 4px 0 0;
+    letter-spacing: -.04em;
+}
+
+.kd-close-purchase-sheet {
+    margin-left: auto;
+    width: 46px;
+    height: 46px;
+    border: 0 !important;
+    outline: none !important;
+    box-shadow: none !important;
+    border-radius: 16px;
+    background: #f1f5f9;
+    color: #0f172a;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all .25s ease;
+    flex: 0 0 auto;
+}
+
+.kd-close-purchase-sheet:hover {
+    transform: rotate(90deg);
+    background: #e2e8f0;
+}
+
+.kd-close-purchase-sheet:focus,
+.kd-close-purchase-sheet:active {
+    outline: none !important;
+    border: 0 !important;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, .10) !important;
+}
+
+/* ==========================================================
+   SUMMARY CARDS
+========================================================== */
+
+.kd-purchase-summary {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.kd-purchase-summary > div {
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, .08);
+    border-radius: 22px;
+    padding: 18px;
+    box-shadow: 0 10px 30px rgba(15, 23, 42, .04);
+    min-width: 0;
+}
+
+.kd-purchase-summary span {
+    display: block;
+    color: #64748b;
+    font-size: 10px;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: .10em;
+    margin-bottom: 10px;
+}
+
+.kd-purchase-summary strong {
+    color: #071327;
+    font-size: 22px;
+    font-weight: 950;
+    letter-spacing: -.04em;
+    word-break: break-word;
+}
+
+#purchaseAmount {
+    font-weight: 950;
+}
+
+.kd-wallet-balance-box strong,
+.kd-purchase-summary > div:nth-child(3) strong {
+    font-size: 18px;
+}
+
+/* ==========================================================
+   ALERTS
+========================================================== */
+
+.kd-purchase-alert,
+.kd-purchase-alert:empty,
+.kd-field-error:empty,
+.kd-field-hint:empty {
+    display: none !important;
+}
+
+.kd-purchase-alert.show {
+    display: flex !important;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    padding: 14px 16px;
+    border-radius: 14px;
+    font-size: 13px;
+    line-height: 1.5;
+    font-weight: 800;
+}
+
+.kd-purchase-alert i {
+    margin-top: 2px;
+    flex: 0 0 auto;
+}
+
+.kd-purchase-alert.success {
+    background: #ecfdf5;
+    border: 1px solid #10b981;
+    color: #065f46;
+}
+
+.kd-purchase-alert.error {
+    background: #fef2f2;
+    border: 1px solid #ef4444;
+    color: #991b1b;
+}
+
+.kd-purchase-alert.warning {
+    background: #fff7ed;
+    border: 1px solid #f97316;
+    color: #9a3412;
+}
+
+/* ==========================================================
+   PAYMENT METHOD SELECTOR
+========================================================== */
+
+.kd-payment-method-wrap {
+    margin: 4px 0 20px;
+}
+
+.kd-payment-method-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.kd-payment-method-title label {
+    color: #0f172a;
+    font-size: 13px;
+    font-weight: 950;
+}
+
+.kd-payment-method-title span {
+    color: #64748b;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.kd-payment-method-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+}
+
+.kd-payment-method-option {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 78px;
+    border-radius: 20px;
+    border: 1px solid rgba(148, 163, 184, .35);
+    background: #ffffff;
+    padding: 14px;
+    cursor: pointer;
+    transition: all .25s ease;
+    overflow: hidden;
+    min-width: 0;
+}
+
+.kd-payment-method-option input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.kd-payment-method-icon {
+    width: 44px;
+    height: 44px;
+    border-radius: 16px;
+    display: grid;
+    place-items: center;
+    background: #f1f5f9;
+    color: #2563eb;
+    font-size: 17px;
+    flex-shrink: 0;
+    transition: all .25s ease;
+}
+
+.kd-payment-method-text {
+    min-width: 0;
+}
+
+.kd-payment-method-text strong {
+    display: block;
+    color: #0f172a;
+    font-size: 13px;
+    font-weight: 950;
+    margin-bottom: 0;
+    white-space: nowrap;
+}
+
+.kd-payment-method-text small {
+    display: none;
+}
+
+.kd-paystack-mobile {
+    display: none !important;
+}
+
+.kd-paystack-desktop {
+    display: inline !important;
+}
+
+.kd-payment-method-option:hover {
+    border-color: rgba(37, 99, 235, .45);
+    transform: translateY(-1px);
+    box-shadow: 0 12px 28px rgba(15, 23, 42, .08);
+}
+
+.kd-payment-method-option.active,
+.kd-payment-method-option:has(input:checked) {
+    border-color: #2563eb;
+    background:
+        radial-gradient(circle at top right, rgba(37, 99, 235, .13), transparent 34%),
+        #ffffff;
+    box-shadow: 0 14px 35px rgba(37, 99, 235, .14);
+}
+
+.kd-payment-method-option.active .kd-payment-method-icon,
+.kd-payment-method-option:has(input:checked) .kd-payment-method-icon {
+    background: #2563eb;
+    color: #ffffff;
+}
+
+.kd-payment-check {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 22px;
+    height: 22px;
+    border-radius: 999px;
+    place-items: center;
+    background: #10b981;
+    color: #ffffff;
+    font-size: 11px;
+}
+
+.kd-payment-method-option.active .kd-payment-check,
+.kd-payment-method-option:has(input:checked) .kd-payment-check {
+    display: grid;
+}
+
+.kd-payment-method-option.active::after,
+.kd-payment-method-option:has(input:checked)::after {
+    display: none !important;
+}
+
+/* ==========================================================
+   FORM
+========================================================== */
+
+.kd-purchase-form {
+    width: 100%;
+}
+
+.kd-form-group {
+    position: relative;
+    margin-bottom: 18px;
+}
+
+.kd-form-group label {
+    display: block;
+    color: #0f172a;
+    font-size: 13px;
+    font-weight: 900;
+    margin-bottom: 8px;
+}
+
+.kd-form-group input {
+    width: 100%;
+    height: 56px;
+    border-radius: 16px;
+    border: 1px solid #dbe3ed;
+    background: #ffffff;
+    padding: 0 16px;
+    color: #071327;
+    font-size: 14px;
+    font-weight: 750;
+    outline: none;
+    transition: all .25s ease;
+}
+
+.kd-form-group input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, .10);
+}
+
+.kd-form-group input[readonly] {
+    background: #f8fafc;
+    color: #64748b;
+}
+
+.kd-form-group input.is-invalid {
+    border-color: #ef4444 !important;
+    background: rgba(239, 68, 68, .04);
+    box-shadow: 0 0 0 4px rgba(239, 68, 68, .10) !important;
+}
+
+.kd-form-group input.is-valid {
+    border-color: #10b981 !important;
+    box-shadow: 0 0 0 4px rgba(16, 185, 129, .10) !important;
+}
+
+.kd-field-hint {
+    display: block;
+    margin-top: 8px;
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 650;
+    line-height: 1.5;
+}
+
+.kd-field-error {
+    display: none;
+    margin-top: 8px;
+    color: #ef4444 !important;
+    font-size: 12px;
+    font-weight: 800;
+    line-height: 1.5;
+}
+
+.kd-field-error.show {
+    display: block !important;
+}
+
+/* ==========================================================
+   SMART SUGGESTIONS
+========================================================== */
+
+.kd-smart-suggestions {
+    display: none;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.kd-smart-suggestions.show {
+    display: flex;
+}
+
+.kd-suggestion-chip {
+    border: 1px solid rgba(148, 163, 184, .35);
+    background: #f8fafc;
+    color: #0f172a;
+    border-radius: 999px;
+    padding: 7px 11px;
+    font-size: 12px;
+    font-weight: 850;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.kd-suggestion-chip:hover {
+    background: #e2e8f0;
+}
+
+/* ==========================================================
+   PORTED CHECK
+========================================================== */
+
+.kd-ported-check {
+    display: none;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px;
+    border-radius: 18px;
+    border: 1px solid rgba(148, 163, 184, .28);
+    background: #f8fafc;
+    margin: 4px 0 18px;
+    cursor: pointer;
+}
+
+.kd-ported-check.show {
+    display: flex;
+}
+
+.kd-ported-check input {
+    width: 17px;
+    height: 17px;
+    margin-top: 3px;
+    accent-color: #2563eb;
+    flex: 0 0 auto;
+}
+
+.kd-ported-check strong {
+    display: block;
+    color: #0f172a;
+    font-size: 13px;
+    font-weight: 950;
+    margin-bottom: 2px;
+}
+
+.kd-ported-check small {
+    display: block;
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 650;
+    line-height: 1.45;
+}
+
+/* ==========================================================
+   BUTTON
+========================================================== */
+
+.kd-submit-purchase-btn {
+    width: 100%;
+    height: 58px;
+    border: none;
+    border-radius: 18px;
+    margin-top: 10px;
+    font-size: 15px;
+    font-weight: 950;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: all .25s ease;
+}
+
+.kd-submit-purchase-btn:hover {
+    transform: translateY(-2px);
+}
+
+.kd-submit-purchase-btn:disabled {
+    opacity: .65;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* ==========================================================
+   PAYMENT OPTIONS AFTER ORDER
+========================================================== */
+
+.kd-payment-options {
+    margin-top: 22px;
+}
+
+.kd-order-created-box {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 15px;
+    border-radius: 20px;
+    background: rgba(16, 185, 129, .10);
+    border: 1px solid rgba(16, 185, 129, .22);
+    margin-bottom: 14px;
+}
+
+.kd-order-created-box i {
+    width: 42px;
+    height: 42px;
+    border-radius: 15px;
+    display: grid;
+    place-items: center;
+    background: #10b981;
+    color: #ffffff;
+    flex-shrink: 0;
+}
+
+.kd-order-created-box strong {
+    display: block;
+    color: #065f46;
+    font-size: 13px;
+    font-weight: 950;
+    margin-bottom: 3px;
+}
+
+.kd-order-created-box span {
+    display: block;
+    color: #047857;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.kd-wallet-status-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 16px;
+    border-radius: 20px;
+    background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, .12), transparent 35%),
+        #ffffff;
+    border: 1px solid rgba(148, 163, 184, .28);
+    margin-bottom: 14px;
+}
+
+.kd-wallet-status-box span {
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+}
+
+.kd-wallet-status-box strong {
+    color: #071327;
+    font-size: 20px;
+    font-weight: 950;
+}
+
+.kd-payment-btn,
+.kd-paystack-btn,
+.kd-wallet-pay-btn {
+    width: 100%;
+    height: 56px;
+    border: 1px solid rgba(148, 163, 184, .35);
+    border-radius: 18px;
+    background: #ffffff;
+    color: #0f172a;
+    font-size: 14px;
+    font-weight: 950;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all .25s ease;
+    margin-top: 10px;
+}
+
+.kd-payment-btn:hover,
+.kd-paystack-btn:hover,
+.kd-wallet-pay-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 34px rgba(15, 23, 42, .10);
+}
+
+.kd-payment-btn.active,
+.kd-paystack-btn.active {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: #ffffff;
+    border-color: transparent;
+}
+
+.kd-wallet-pay-btn.active {
+    background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+    color: #ffffff;
+    border-color: transparent;
+}
+
+/* ==========================================================
+   NETWORK COLORS
+========================================================== */
+
+.network-mtn .kd-submit-purchase-btn {
+    background: linear-gradient(135deg, #ffcc00 0%, #f4bd00 100%);
+    color: #111827;
+}
+
+.network-mtn .kd-purchase-network {
+    border: 2px solid #ffcc00;
+}
+
+.network-telecel .kd-submit-purchase-btn {
+    background: linear-gradient(135deg, #ed1b24 0%, #c50f17 100%);
+    color: #ffffff;
+}
+
+.network-telecel .kd-purchase-network {
+    border: 2px solid #ed1b24;
+}
+
+.network-at .kd-submit-purchase-btn {
+    background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+    color: #ffffff;
+}
+
+.network-at .kd-purchase-network {
+    border: 2px solid #2563eb;
+}
+
+.network-default .kd-submit-purchase-btn {
+    background: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    color: #ffffff;
+}
+
+/* ==========================================================
+   FORCE ABOVE EVERYTHING
+========================================================== */
+
+.kd-status-topbar,
+.kd-user-topbar,
+.kd-navbar,
+.kd-sidebar,
+.kd-mobile-sidebar,
+.kd-mobile-menu,
+.kd-user-menu,
+.kd-footer,
+footer {
+    z-index: 1000 !important;
+}
+
+/* ==========================================================
+   DARK MODE
+========================================================== */
+
+html[data-theme="dark"] .kd-purchase-sheet,
+body.dark-mode .kd-purchase-sheet {
+    background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, .14), transparent 30%),
+        linear-gradient(180deg, #07111f 0%, #0f172a 100%);
+}
+
+html[data-theme="dark"] .kd-purchase-header h2,
+body.dark-mode .kd-purchase-header h2,
+html[data-theme="dark"] .kd-purchase-summary strong,
+body.dark-mode .kd-purchase-summary strong,
+html[data-theme="dark"] .kd-form-group label,
+body.dark-mode .kd-form-group label,
+html[data-theme="dark"] .kd-ported-check strong,
+body.dark-mode .kd-ported-check strong,
+html[data-theme="dark"] .kd-suggestion-chip,
+body.dark-mode .kd-suggestion-chip,
+html[data-theme="dark"] .kd-payment-method-title label,
+body.dark-mode .kd-payment-method-title label,
+html[data-theme="dark"] .kd-payment-method-text strong,
+body.dark-mode .kd-payment-method-text strong,
+html[data-theme="dark"] .kd-wallet-status-box strong,
+body.dark-mode .kd-wallet-status-box strong {
+    color: #ffffff;
+}
+
+html[data-theme="dark"] .kd-purchase-summary > div,
+body.dark-mode .kd-purchase-summary > div,
+html[data-theme="dark"] .kd-ported-check,
+body.dark-mode .kd-ported-check,
+html[data-theme="dark"] .kd-payment-method-option,
+body.dark-mode .kd-payment-method-option,
+html[data-theme="dark"] .kd-wallet-status-box,
+body.dark-mode .kd-wallet-status-box,
+html[data-theme="dark"] .kd-payment-btn,
+body.dark-mode .kd-payment-btn,
+html[data-theme="dark"] .kd-paystack-btn,
+body.dark-mode .kd-paystack-btn,
+html[data-theme="dark"] .kd-wallet-pay-btn,
+body.dark-mode .kd-wallet-pay-btn {
+    background: #101827;
+    border-color: rgba(148, 163, 184, .14);
+    color: #ffffff;
+}
+
+html[data-theme="dark"] .kd-payment-method-option.active,
+body.dark-mode .kd-payment-method-option.active,
+html[data-theme="dark"] .kd-payment-method-option:has(input:checked),
+body.dark-mode .kd-payment-method-option:has(input:checked) {
+    background:
+        radial-gradient(circle at top right, rgba(37, 99, 235, .18), transparent 34%),
+        #101827;
+    border-color: #2563eb;
+}
+
+html[data-theme="dark"] .kd-form-group input,
+body.dark-mode .kd-form-group input {
+    background: #101827;
+    border-color: rgba(148, 163, 184, .14);
+    color: #ffffff;
+}
+
+html[data-theme="dark"] .kd-form-group input[readonly],
+body.dark-mode .kd-form-group input[readonly] {
+    background: #0f172a;
+    color: #94a3b8;
+}
+
+html[data-theme="dark"] .kd-close-purchase-sheet,
+body.dark-mode .kd-close-purchase-sheet {
+    background: #101827;
+    color: #ffffff;
+}
+
+html[data-theme="dark"] .kd-purchase-header span,
+body.dark-mode .kd-purchase-header span,
+html[data-theme="dark"] .kd-field-hint,
+body.dark-mode .kd-field-hint,
+html[data-theme="dark"] .kd-purchase-summary span,
+body.dark-mode .kd-purchase-summary span,
+html[data-theme="dark"] .kd-ported-check small,
+body.dark-mode .kd-ported-check small,
+html[data-theme="dark"] .kd-payment-method-title span,
+body.dark-mode .kd-payment-method-title span,
+html[data-theme="dark"] .kd-payment-method-text small,
+body.dark-mode .kd-payment-method-text small,
+html[data-theme="dark"] .kd-wallet-status-box span,
+body.dark-mode .kd-wallet-status-box span {
+    color: #94a3b8;
+}
+
+html[data-theme="dark"] .kd-suggestion-chip,
+body.dark-mode .kd-suggestion-chip {
+    background: #101827;
+    border-color: rgba(148, 163, 184, .18);
+}
+
+html[data-theme="dark"] .kd-purchase-alert.success,
+body.dark-mode .kd-purchase-alert.success {
+    background: rgba(16, 185, 129, .12);
+    border-color: rgba(16, 185, 129, .45);
+    color: #86efac;
+}
+
+html[data-theme="dark"] .kd-purchase-alert.error,
+body.dark-mode .kd-purchase-alert.error {
+    background: rgba(239, 68, 68, .12);
+    border-color: rgba(239, 68, 68, .45);
+    color: #fecaca;
+}
+
+html[data-theme="dark"] .kd-purchase-alert.warning,
+body.dark-mode .kd-purchase-alert.warning {
+    background: rgba(249, 115, 22, .12);
+    border-color: rgba(249, 115, 22, .45);
+    color: #fed7aa;
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 768px) {
+
+    .kd-purchase-sheet {
+        top: auto;
+        bottom: 0;
+        right: 0;
+        width: 100%;
+        height: auto;
+        max-height: 92dvh;
+        border-radius: 32px 32px 0 0;
+        transform: translateY(105%);
+        padding: 18px 16px 20px;
+    }
+
+    .kd-purchase-sheet.show {
+        transform: translateY(0);
+    }
+
+    .kd-purchase-handle {
+        display: block;
+        width: 54px;
+        height: 5px;
+        border-radius: 999px;
+        background: #cbd5e1;
+        margin: 0 auto 18px;
+    }
+
+    .kd-purchase-header {
+        gap: 12px;
+        margin-bottom: 18px;
+    }
+
+    .kd-purchase-network {
+        width: 54px;
+        height: 54px;
+        border-radius: 16px;
+    }
+
+    .kd-purchase-header span {
+        font-size: 10px;
+        letter-spacing: .1em;
+    }
+
+    .kd-purchase-header h2 {
+        font-size: 21px;
+    }
+
+    .kd-close-purchase-sheet {
+        width: 42px;
+        height: 42px;
+        border-radius: 15px;
+    }
+
+    .kd-purchase-summary {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+
+    .kd-purchase-summary > div {
+        border-radius: 18px;
+        padding: 13px;
+    }
+
+    .kd-purchase-summary span {
+        font-size: 8px;
+        margin-bottom: 7px;
+        letter-spacing: .08em;
+    }
+
+    .kd-purchase-summary strong {
+        font-size: 18px;
+    }
+
+    .kd-purchase-summary > div:nth-child(3),
+    .kd-wallet-balance-box {
+        grid-column: span 2;
+        padding: 10px 13px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        border-radius: 16px;
+    }
+
+    .kd-purchase-summary > div:nth-child(3) span,
+    .kd-wallet-balance-box span {
+        margin-bottom: 0;
+        font-size: 8px;
+    }
+
+    .kd-purchase-summary > div:nth-child(3) strong,
+    .kd-wallet-balance-box strong {
+        font-size: 13px;
+        letter-spacing: -.02em;
+        white-space: nowrap;
+    }
+
+    .kd-payment-method-title {
+        align-items: flex-end;
+        margin-bottom: 9px;
+    }
+
+    .kd-payment-method-title label {
+        font-size: 12px;
+    }
+
+    .kd-payment-method-title span {
+        font-size: 10px;
+        text-align: right;
+    }
+
+    .kd-payment-method-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+    }
+
+    .kd-payment-method-option {
+        min-width: 0;
+        min-height: 58px;
+        border-radius: 18px;
+        padding: 10px 12px;
+        gap: 9px;
+        justify-content: flex-start;
+    }
+
+    .kd-payment-method-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 13px;
+        font-size: 14px;
+    }
+
+    .kd-payment-method-text strong {
+        font-size: 12px;
+        margin-bottom: 0;
+    }
+
+    .kd-paystack-desktop {
+        display: none !important;
+    }
+
+    .kd-paystack-mobile {
+        display: inline !important;
+    }
+
+    .kd-payment-check {
+        top: 7px;
+        right: 7px;
+        width: 18px;
+        height: 18px;
+        font-size: 9px;
+    }
+
+    .kd-form-group {
+        margin-bottom: 15px;
+    }
+
+    .kd-form-group label {
+        font-size: 12px;
+        margin-bottom: 7px;
+    }
+
+    .kd-form-group input {
+        height: 50px;
+        border-radius: 15px;
+        font-size: 13px;
+        padding: 0 14px;
+    }
+
+    .kd-field-hint,
+    .kd-field-error,
+    .kd-ported-check small {
+        font-size: 11px;
+    }
+
+    .kd-ported-check {
+        padding: 12px;
+        border-radius: 16px;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .kd-ported-check input {
+        width: 16px;
+        height: 16px;
+    }
+
+    .kd-ported-check strong {
+        font-size: 12px;
+    }
+
+    .kd-submit-purchase-btn {
+        height: 52px;
+        border-radius: 16px;
+        font-size: 13px;
+        margin-top: 8px;
+    }
+
+    .kd-suggestion-chip {
+        padding: 6px 10px;
+        font-size: 11px;
+    }
+
+    .kd-wallet-status-box {
+        padding: 14px;
+        border-radius: 18px;
+    }
+
+    .kd-payment-btn,
+    .kd-paystack-btn,
+    .kd-wallet-pay-btn {
+        height: 52px;
+        border-radius: 16px;
+        font-size: 13px;
+    }
+}
+
+@media (max-width: 420px) {
+    .kd-purchase-sheet {
+        padding: 16px 14px 18px;
+        max-height: 94dvh;
+        border-radius: 28px 28px 0 0;
+    }
+
+    .kd-purchase-header h2 {
+        font-size: 19px;
+    }
+
+    .kd-purchase-network {
+        width: 50px;
+        height: 50px;
+    }
+
+    .kd-purchase-summary {
+        gap: 8px;
+    }
+
+    .kd-purchase-summary > div {
+        padding: 11px;
+        border-radius: 16px;
+    }
+
+    .kd-purchase-summary strong {
+        font-size: 16px;
+    }
+
+    .kd-purchase-summary > div:nth-child(3) strong,
+    .kd-wallet-balance-box strong {
+        font-size: 12px;
+    }
+
+    .kd-payment-method-grid {
+        gap: 8px;
+    }
+
+    .kd-payment-method-option {
+        min-height: 54px;
+        padding: 9px 10px;
+        border-radius: 16px;
+        gap: 8px;
+    }
+
+    .kd-payment-method-icon {
+        width: 34px;
+        height: 34px;
+        border-radius: 12px;
+        font-size: 13px;
+    }
+
+    .kd-payment-method-text strong {
+        font-size: 11px;
+    }
+}
+
+.kd-purchase-summary.kd-guest-summary {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.kd-payment-method-grid.kd-guest-payment-grid {
+    grid-template-columns: 1fr;
+}
+
+.kd-payment-method-grid.kd-guest-payment-grid .kd-payment-method-option {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .kd-purchase-summary.kd-guest-summary {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .kd-payment-method-grid.kd-guest-payment-grid {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,757 @@
+/* ==========================================================
+   USER DASHBOARD
+========================================================== */
+
+.kd-dashboard {
+    width: 100%;
+    max-width: 1320px;
+    margin: 0 auto;
+    padding: 62px 22px 55px;
+}
+
+/* ==========================================================
+   HERO
+========================================================== */
+
+.kd-instant-hero {
+    width: 100%;
+    min-height: 285px;
+    border-radius: 34px;
+    padding: 42px;
+    margin-bottom: 48px;
+    position: relative;
+    overflow: hidden;
+    background:
+        radial-gradient(circle at top right, rgba(255, 255, 255, .22), transparent 35%),
+        radial-gradient(circle at bottom left, rgba(147, 197, 253, .26), transparent 34%),
+        linear-gradient(135deg, #2563eb 0%, #1d4ed8 52%, #163f9f 100%);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 34px;
+    box-shadow: 0 25px 70px rgba(37, 99, 235, .23);
+}
+
+.kd-instant-hero::before {
+    content: "";
+    position: absolute;
+    width: 310px;
+    height: 310px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .08);
+    left: -120px;
+    bottom: -150px;
+}
+
+.kd-instant-hero::after {
+    content: "";
+    position: absolute;
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .12);
+    top: -85px;
+    right: -65px;
+}
+
+.kd-hero-content,
+.kd-wallet-mini,
+.kd-login-mini-card {
+    position: relative;
+    z-index: 2;
+}
+
+.kd-hero-content {
+    flex: 1;
+    min-width: 0;
+}
+
+.kd-hero-welcome {
+    width: fit-content;
+    height: 38px;
+    padding: 0 16px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .16);
+    border: 1px solid rgba(255, 255, 255, .22);
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 900;
+    margin-bottom: 18px;
+}
+
+.kd-instant-hero h1 {
+    color: #ffffff;
+    font-size: clamp(2rem, 4vw, 3.55rem);
+    font-weight: 950;
+    letter-spacing: -0.065em;
+    line-height: 1.04;
+    margin: 0 0 14px;
+}
+
+.kd-instant-hero h1 span {
+    color: #dbeafe;
+}
+
+.kd-instant-hero p {
+    max-width: 660px;
+    color: rgba(255, 255, 255, .88);
+    font-size: 16px;
+    font-weight: 650;
+    line-height: 1.75;
+    margin: 0;
+}
+
+/* ==========================================================
+   WALLET
+========================================================== */
+
+.kd-wallet-mini {
+    width: 285px;
+    min-height: 170px;
+    border-radius: 28px;
+    padding: 24px;
+    background: rgba(255, 255, 255, .16);
+    border: 1px solid rgba(255, 255, 255, .25);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.kd-wallet-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, .18);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 16px;
+    font-size: 20px;
+}
+
+.kd-wallet-mini span {
+    color: rgba(255, 255, 255, .76);
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .13em;
+}
+
+.kd-wallet-mini strong {
+    color: #ffffff;
+    font-size: 2.25rem;
+    font-weight: 950;
+    letter-spacing: -0.06em;
+    margin-top: 6px;
+}
+
+/* ==========================================================
+   GUEST LOGIN MINI CARD
+========================================================== */
+
+.kd-login-mini-card {
+    width: 285px;
+    min-height: 170px;
+    border-radius: 28px;
+    padding: 22px;
+    background: rgba(255, 255, 255, .16);
+    border: 1px solid rgba(255, 255, 255, .25);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-shrink: 0;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12);
+}
+
+.kd-login-mini-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, .18);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 14px;
+    font-size: 19px;
+}
+
+.kd-login-mini-card span {
+    color: rgba(255, 255, 255, .76);
+    font-size: 11px;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+}
+
+.kd-login-mini-card strong {
+    color: #ffffff;
+    font-size: 1.35rem;
+    font-weight: 950;
+    line-height: 1.24;
+    letter-spacing: -0.035em;
+    margin: 6px 0 16px;
+}
+
+.kd-login-mini-btn {
+    width: 100%;
+    height: 46px;
+    border-radius: 16px;
+    background: #ffffff;
+    color: #1d4ed8;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 950;
+    box-shadow: 0 16px 32px rgba(15, 23, 42, .16);
+    transition: transform .25s ease, background .25s ease, color .25s ease, box-shadow .25s ease;
+}
+
+.kd-login-mini-btn:hover {
+    transform: translateY(-2px);
+    background: #eff6ff;
+    color: #1e40af;
+    box-shadow: 0 20px 42px rgba(15, 23, 42, .22);
+}
+
+/* Remove old guest login styles if cached markup exists */
+.kd-guest-login-card,
+.kd-guest-login-icon,
+.kd-guest-login-text,
+.kd-guest-login-btn {
+    display: none !important;
+}
+
+/* ==========================================================
+   SECTION HEADING
+========================================================== */
+
+.kd-category-section {
+    width: 100%;
+}
+
+.kd-afa-section {
+    margin-top: 42px;
+}
+
+.kd-section-heading {
+    margin-bottom: 30px;
+}
+
+.kd-section-heading > span {
+    display: inline-flex;
+    align-items: center;
+    width: fit-content;
+    height: 31px;
+    padding: 0 14px;
+    border-radius: 999px;
+    background: #dbeafe;
+    color: #2563eb;
+    font-size: 12px;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: .09em;
+    margin-bottom: 12px;
+}
+
+.kd-section-heading h2 {
+    font-size: 2.05rem;
+    font-weight: 950;
+    letter-spacing: -0.045em;
+    margin: 0 0 7px;
+    line-height: 1.2;
+}
+
+.kd-title-red {
+    color: #ef233c;
+}
+
+.kd-title-gold {
+    color: #f59e0b;
+}
+
+.kd-title-green {
+    color: #16a34a;
+}
+
+.kd-section-heading p {
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 700;
+    margin: 0;
+}
+
+/* ==========================================================
+   CATEGORY + AFA GRID
+========================================================== */
+
+.kd-category-grid,
+.kd-afa-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 30px;
+}
+
+/* ==========================================================
+   CATEGORY + AFA CARD
+========================================================== */
+
+.kd-category-card,
+.kd-afa-card {
+    width: 100%;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    transition: transform .25s ease;
+}
+
+.kd-category-card:hover,
+.kd-afa-card:hover {
+    transform: translateY(-7px);
+}
+
+.kd-category-image,
+.kd-afa-image {
+    width: 100%;
+    height: 205px;
+    border-radius: 24px;
+    overflow: hidden;
+    position: relative;
+    background: #ffffff;
+    border: 1px solid rgba(15, 23, 42, .10);
+    box-shadow: 0 18px 45px rgba(15, 23, 42, .08);
+    transition: box-shadow .25s ease, border-color .25s ease;
+}
+
+.kd-category-card:hover .kd-category-image,
+.kd-afa-card:hover .kd-afa-image {
+    border-color: rgba(37, 99, 235, .35);
+    box-shadow: 0 28px 65px rgba(15, 23, 42, .15);
+}
+
+.kd-category-image img,
+.kd-afa-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* fallback icon for AFA */
+.kd-afa-image i {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    font-size: 42px;
+    color: #2563eb;
+    background: #eff6ff;
+}
+
+/* ==========================================================
+   CARD TITLES
+========================================================== */
+
+.kd-category-card h3,
+.kd-afa-card h3 {
+    color: #071327;
+    font-size: 15px;
+    font-weight: 950;
+    letter-spacing: .035em;
+    text-align: center;
+    margin: 14px 0 0;
+    line-height: 1.35;
+    transition: .25s ease;
+}
+
+.kd-category-active:hover h3,
+.kd-afa-active:hover h3 {
+    color: #2563eb;
+}
+
+/* ==========================================================
+   ACTIVE / INACTIVE
+========================================================== */
+
+.kd-category-active,
+.kd-afa-active {
+    cursor: pointer;
+}
+
+.kd-category-inactive,
+.kd-afa-inactive {
+    cursor: not-allowed;
+    opacity: .96;
+}
+
+.kd-category-active:hover .kd-category-image,
+.kd-afa-active:hover .kd-afa-image {
+    border-color: #2563eb;
+}
+
+.kd-category-inactive .kd-category-image img,
+.kd-afa-inactive .kd-afa-image img {
+    filter: grayscale(80%) brightness(.65);
+}
+
+/* ==========================================================
+   BADGES
+========================================================== */
+
+.kd-out-stock-badge,
+.kd-unavailable-badge {
+    position: absolute;
+    inset: 0;
+    background: rgba(15, 23, 42, .65);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    z-index: 5;
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px);
+}
+
+.kd-out-stock-badge::before,
+.kd-unavailable-badge::before {
+    content: "";
+    position: absolute;
+    width: 190px;
+    height: 48px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, .30);
+    background: rgba(255, 255, 255, .12);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    z-index: -1;
+}
+
+/* remove amount if old markup still exists */
+.kd-afa-price,
+.kd-afa-tag,
+.kd-afa-card p {
+    display: none !important;
+}
+
+/* ==========================================================
+   EMPTY STATE
+========================================================== */
+
+.kd-empty-state {
+    min-height: 300px;
+    border-radius: 30px;
+    background: #ffffff;
+    border: 1px dashed rgba(15, 23, 42, .18);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #64748b;
+    text-align: center;
+    padding: 34px;
+}
+
+.kd-empty-state i {
+    width: 74px;
+    height: 74px;
+    border-radius: 24px;
+    background: #eff6ff;
+    color: #2563eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    margin-bottom: 16px;
+}
+
+.kd-empty-state h3 {
+    color: #071327;
+    font-size: 21px;
+    font-weight: 950;
+    margin: 0 0 8px;
+}
+
+.kd-empty-state p {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* ==========================================================
+   TOAST
+========================================================== */
+
+.kd-dashboard-toast {
+    position: fixed;
+    top: 88px;
+    right: 22px;
+    z-index: 1000001;
+    min-width: 280px;
+    max-width: min(420px, calc(100% - 32px));
+    display: none;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 15px 17px;
+    border-radius: 16px;
+    font-size: 13px;
+    font-weight: 850;
+    line-height: 1.45;
+    box-shadow: 0 20px 50px rgba(2, 6, 23, .18);
+    transform: translateY(-12px);
+    opacity: 0;
+    transition: all .3s ease;
+}
+
+.kd-dashboard-toast.show {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.kd-dashboard-toast.success {
+    background: #ecfdf5;
+    border: 1px solid rgba(16, 185, 129, .35);
+    color: #065f46;
+}
+
+.kd-dashboard-toast.error {
+    background: #fef2f2;
+    border: 1px solid rgba(239, 68, 68, .35);
+    color: #991b1b;
+}
+
+.kd-dashboard-toast.warning {
+    background: #fff7ed;
+    border: 1px solid rgba(249, 115, 22, .35);
+    color: #9a3412;
+}
+
+.kd-dashboard-toast i {
+    margin-top: 2px;
+    flex: 0 0 auto;
+}
+
+/* ==========================================================
+   DARK MODE
+========================================================== */
+
+html[data-theme="dark"] .kd-instant-hero,
+body.dark-mode .kd-instant-hero {
+    background:
+        radial-gradient(circle at top right, rgba(96, 165, 250, .26), transparent 35%),
+        radial-gradient(circle at bottom left, rgba(59, 130, 246, .18), transparent 34%),
+        linear-gradient(135deg, #1d4ed8 0%, #1e40af 48%, #172554 100%);
+    box-shadow: 0 25px 70px rgba(37, 99, 235, .20);
+}
+
+html[data-theme="dark"] .kd-instant-hero h1,
+body.dark-mode .kd-instant-hero h1,
+html[data-theme="dark"] .kd-instant-hero p,
+body.dark-mode .kd-instant-hero p {
+    color: #ffffff;
+}
+
+html[data-theme="dark"] .kd-section-heading p,
+body.dark-mode .kd-section-heading p {
+    color: #94a3b8;
+}
+
+html[data-theme="dark"] .kd-category-card h3,
+body.dark-mode .kd-category-card h3,
+html[data-theme="dark"] .kd-afa-card h3,
+body.dark-mode .kd-afa-card h3,
+html[data-theme="dark"] .kd-empty-state h3,
+body.dark-mode .kd-empty-state h3 {
+    color: #ffffff;
+}
+
+html[data-theme="dark"] .kd-category-image,
+body.dark-mode .kd-category-image,
+html[data-theme="dark"] .kd-afa-image,
+body.dark-mode .kd-afa-image,
+html[data-theme="dark"] .kd-empty-state,
+body.dark-mode .kd-empty-state {
+    background: #101827;
+    border-color: rgba(148, 163, 184, .16);
+}
+
+html[data-theme="dark"] .kd-category-active:hover h3,
+body.dark-mode .kd-category-active:hover h3,
+html[data-theme="dark"] .kd-afa-active:hover h3,
+body.dark-mode .kd-afa-active:hover h3 {
+    color: #60a5fa;
+}
+
+html[data-theme="dark"] .kd-login-mini-card,
+body.dark-mode .kd-login-mini-card {
+    background: rgba(15, 23, 42, .55);
+    border-color: rgba(255, 255, 255, .10);
+}
+
+html[data-theme="dark"] .kd-login-mini-btn,
+body.dark-mode .kd-login-mini-btn {
+    background: #ffffff;
+    color: #0f172a;
+}
+
+html[data-theme="dark"] .kd-login-mini-btn:hover,
+body.dark-mode .kd-login-mini-btn:hover {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width: 1200px) {
+    .kd-category-grid,
+    .kd-afa-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+    }
+}
+
+@media (max-width: 991px) {
+    .kd-dashboard {
+        padding-top: 40px;
+    }
+
+    .kd-instant-hero {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 30px;
+    }
+
+    .kd-wallet-mini,
+    .kd-login-mini-card {
+        width: 100%;
+        min-height: auto;
+    }
+
+    .kd-category-grid,
+    .kd-afa-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .kd-category-image,
+    .kd-afa-image {
+        height: 190px;
+    }
+}
+
+@media (max-width: 640px) {
+    .kd-dashboard-toast {
+        top: 18px;
+        right: 16px;
+        left: 16px;
+        min-width: 0;
+        max-width: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .kd-dashboard {
+        padding: 30px 14px 40px;
+    }
+
+    .kd-instant-hero {
+        border-radius: 24px;
+        padding: 24px;
+        margin-bottom: 36px;
+        gap: 22px;
+    }
+
+    .kd-instant-hero h1 {
+        font-size: 2rem;
+    }
+
+    .kd-instant-hero p {
+        font-size: 14px;
+    }
+
+    .kd-wallet-mini,
+    .kd-login-mini-card {
+        border-radius: 22px;
+        padding: 18px;
+    }
+
+    .kd-wallet-mini strong {
+        font-size: 1.85rem;
+    }
+
+    .kd-login-mini-card strong {
+        font-size: 1.2rem;
+    }
+
+    .kd-category-grid,
+    .kd-afa-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+    }
+
+    .kd-category-image,
+    .kd-afa-image {
+        height: 118px;
+        border-radius: 17px;
+    }
+
+    .kd-category-card h3,
+    .kd-afa-card h3 {
+        font-size: 10.5px;
+        margin-top: 9px;
+        letter-spacing: .025em;
+    }
+
+    .kd-out-stock-badge,
+    .kd-unavailable-badge {
+        font-size: 10.5px;
+    }
+
+    .kd-out-stock-badge::before,
+    .kd-unavailable-badge::before {
+        width: 116px;
+        height: 34px;
+    }
+}
+
+@media (max-width: 390px) {
+    .kd-category-image,
+    .kd-afa-image {
+        height: 105px;
+    }
+
+    .kd-category-card h3,
+    .kd-afa-card h3 {
+        font-size: 10px;
+    }
+}
+
+@media (max-width: 340px) {
+    .kd-category-grid,
+    .kd-afa-grid {
+        gap: 11px;
+    }
+
+    .kd-category-image,
+    .kd-afa-image {
+        height: 96px;
+    }
+}

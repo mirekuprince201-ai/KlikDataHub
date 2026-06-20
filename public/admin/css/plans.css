@@ -1,0 +1,520 @@
+.kd-plan-page {
+    width: 100%;
+}
+
+.kd-plan-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.kd-page-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    height: 32px;
+    padding: 0 13px;
+    border-radius: 999px;
+    background: rgba(37, 99, 235, .10);
+    color: #2563eb;
+    font-size: 12px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.kd-plan-header h1 {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    margin-bottom: 5px;
+    color: var(--kd-text-main);
+}
+
+.kd-plan-header p {
+    color: var(--kd-text-muted);
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.kd-add-plan-btn {
+    height: 46px;
+    padding: 0 17px;
+    border: none;
+    border-radius: 15px;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 800;
+    box-shadow: 0 16px 30px rgba(37, 99, 235, .25);
+    transition: all .25s ease;
+}
+
+.kd-add-plan-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 20px 38px rgba(37, 99, 235, .32);
+}
+
+.kd-plan-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.kd-plan-stat-card {
+    min-height: 100px;
+    padding: 18px;
+    border-radius: 22px;
+    background: var(--kd-card-bg);
+    border: 1px solid var(--kd-border);
+    box-shadow: var(--kd-shadow);
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.kd-stat-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 17px;
+    display: grid;
+    place-items: center;
+    font-size: 19px;
+}
+
+.kd-stat-icon.total {
+    background: rgba(37, 99, 235, .12);
+    color: #2563eb;
+}
+
+.kd-stat-icon.active {
+    background: rgba(22, 163, 74, .12);
+    color: #16a34a;
+}
+
+.kd-stat-icon.inactive {
+    background: rgba(220, 38, 38, .12);
+    color: #dc2626;
+}
+
+.kd-plan-stat-card span {
+    display: block;
+    color: var(--kd-text-muted);
+    font-size: 12px;
+    font-weight: 700;
+    margin-bottom: 3px;
+}
+
+.kd-plan-stat-card strong {
+    color: var(--kd-text-main);
+    font-size: 27px;
+    font-weight: 800;
+}
+
+.kd-plan-table-card {
+    background: var(--kd-card-bg);
+    border: 1px solid var(--kd-border);
+    border-radius: 24px;
+    box-shadow: var(--kd-shadow);
+    overflow: hidden;
+}
+
+.kd-table-card-header {
+    padding: 20px 24px;
+    border-bottom: 1px solid var(--kd-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 18px;
+}
+
+.kd-table-card-header h2 {
+    font-size: 19px;
+    font-weight: 800;
+    margin-bottom: 3px;
+    color: var(--kd-text-main);
+}
+
+.kd-table-card-header p {
+    color: var(--kd-text-muted);
+    font-size: 13px;
+}
+
+.kd-export-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.kd-table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    padding: 14px 18px 18px;
+}
+
+.kd-plan-table {
+    width: 100% !important;
+    min-width: 1030px !important;
+    table-layout: fixed !important;
+    border-collapse: separate !important;
+    border-spacing: 0 8px !important;
+}
+
+.kd-plan-table thead th {
+    border: none !important;
+    background: transparent !important;
+    color: var(--kd-text-muted);
+    font-size: 10px;
+    font-weight: 800;
+    text-transform: uppercase;
+    padding: 8px 10px !important;
+    white-space: nowrap;
+}
+
+.kd-plan-table tbody td {
+    background: rgba(248, 250, 252, .88);
+    border-top: 1px solid rgba(15, 23, 42, .06);
+    border-bottom: 1px solid rgba(15, 23, 42, .06);
+    padding: 10px 10px !important;
+    color: var(--kd-text-main);
+    font-size: 12px;
+    vertical-align: middle;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.kd-plan-table tbody td:first-child {
+    border-left: 1px solid rgba(15, 23, 42, .06);
+    border-radius: 14px 0 0 14px;
+    font-weight: 800;
+    color: var(--kd-text-muted);
+}
+
+.kd-plan-table tbody td:last-child {
+    border-right: 1px solid rgba(15, 23, 42, .06);
+    border-radius: 0 14px 14px 0;
+}
+
+.kd-col-no {
+    width: 48px !important;
+}
+
+.kd-col-plan {
+    width: 230px !important;
+}
+
+.kd-col-category {
+    width: 135px !important;
+}
+
+.kd-col-volume {
+    width: 110px !important;
+}
+
+.kd-col-price {
+    width: 120px !important;
+}
+
+.kd-col-status {
+    width: 145px !important;
+}
+
+.kd-col-switch {
+    width: 145px !important;
+}
+
+.kd-col-created {
+    width: 135px !important;
+}
+
+.kd-col-action {
+    width: 95px !important;
+}
+
+.kd-plan-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+}
+
+.kd-plan-category-img,
+.kd-plan-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 14px;
+    flex: 0 0 auto;
+}
+
+.kd-plan-category-img {
+    object-fit: cover;
+    border: 1px solid rgba(15, 23, 42, .08);
+}
+
+.kd-plan-icon {
+    display: grid;
+    place-items: center;
+    background: linear-gradient(135deg, rgba(37, 99, 235, .15), rgba(124, 58, 237, .12));
+    color: #2563eb;
+}
+
+.kd-plan-text {
+    min-width: 0;
+}
+
+.kd-plan-text strong,
+.kd-plan-text span {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.kd-plan-text strong {
+    font-size: 13px;
+    font-weight: 900;
+    color: var(--kd-text-main);
+}
+
+.kd-plan-text span {
+    color: var(--kd-text-muted);
+    font-size: 11px;
+    margin-top: 2px;
+}
+
+.kd-category-pill,
+.kd-volume-pill,
+.kd-price-pill,
+.kd-date-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    max-width: 100%;
+    padding: 6px 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 900;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.kd-category-pill {
+    background: rgba(37, 99, 235, .08);
+    color: #2563eb;
+}
+
+.kd-volume-pill {
+    background: rgba(14, 165, 233, .10);
+    color: #0284c7;
+}
+
+.kd-price-pill {
+    background: rgba(22, 163, 74, .12);
+    color: #15803d;
+}
+
+.kd-date-pill {
+    background: rgba(100, 116, 139, .10);
+    color: var(--kd-text-muted);
+}
+
+.kd-current-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    min-width: 88px;
+    height: 30px;
+    padding: 0 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 900;
+    text-transform: uppercase;
+}
+
+.kd-current-status.active {
+    color: #047857;
+    background: rgba(16, 185, 129, .12);
+    border: 1px solid rgba(16, 185, 129, .25);
+}
+
+.kd-current-status.inactive {
+    color: #b91c1c;
+    background: rgba(239, 68, 68, .12);
+    border: 1px solid rgba(239, 68, 68, .25);
+}
+
+.kd-status-switch-form {
+    margin: 0;
+    display: inline-flex;
+}
+
+.kd-status-switch {
+    border: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    min-width: 112px;
+    height: 30px;
+    padding: 0 10px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 900;
+    cursor: pointer;
+}
+
+.kd-status-switch.is-active {
+    background: #dcfce7;
+    color: #15803d;
+}
+
+.kd-status-switch.is-inactive {
+    background: #fee2e2;
+    color: #b91c1c;
+}
+
+.kd-switch-track {
+    width: 32px;
+    height: 17px;
+    border-radius: 999px;
+    background: currentColor;
+    position: relative;
+    flex: 0 0 auto;
+}
+
+.kd-switch-dot {
+    width: 13px;
+    height: 13px;
+    background: #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    transition: all .25s ease;
+}
+
+.kd-status-switch.is-active .kd-switch-dot {
+    left: 17px;
+}
+
+.kd-action-group {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.kd-action-btn {
+    width: 32px;
+    height: 32px;
+    border: none;
+    border-radius: 11px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+}
+
+.kd-action-btn.edit {
+    background: rgba(245, 158, 11, .12);
+    color: #d97706;
+}
+
+.kd-action-btn.delete {
+    background: rgba(220, 38, 38, .10);
+    color: #dc2626;
+}
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter {
+    margin-bottom: 12px;
+}
+
+.dataTables_wrapper .dataTables_filter input,
+.dataTables_wrapper .dataTables_length select {
+    border: 1px solid var(--kd-border) !important;
+    border-radius: 14px !important;
+    padding: 8px 11px !important;
+    background: var(--kd-card-bg) !important;
+    color: var(--kd-text-main) !important;
+}
+
+.dt-buttons .dt-button {
+    border: none !important;
+    border-radius: 13px !important;
+    background: rgba(37, 99, 235, .10) !important;
+    color: #2563eb !important;
+    padding: 10px 14px !important;
+    font-size: 12px !important;
+    font-weight: 800 !important;
+}
+
+html[data-theme="dark"] .kd-plan-table tbody td,
+body.dark-mode .kd-plan-table tbody td {
+    background: rgba(15, 23, 42, .82);
+    border-color: rgba(255, 255, 255, .06);
+}
+
+@media (max-width: 768px) {
+    .kd-plan-header,
+    .kd-table-card-header {
+        flex-direction: column;
+    }
+
+    .kd-add-plan-btn,
+    .dt-buttons,
+    .dt-buttons .dt-button {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .kd-plan-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .kd-table-responsive {
+        padding: 12px;
+    }
+}
+
+.kd-plan-filter-row {
+    padding: 16px 18px 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.kd-filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    min-width: 240px;
+}
+
+.kd-filter-group label {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--kd-text-muted);
+}
+
+.kd-category-filter {
+    height: 42px;
+    border: 1px solid var(--kd-border);
+    border-radius: 14px;
+    background: var(--kd-card-bg);
+    color: var(--kd-text-main);
+    padding: 0 13px;
+    font-size: 13px;
+    font-weight: 700;
+    outline: none;
+}
+
+.kd-category-filter:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, .10);
+}

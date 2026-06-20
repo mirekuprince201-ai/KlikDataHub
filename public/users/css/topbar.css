@@ -1,0 +1,527 @@
+/* ==========================================================
+   FIXED STATIC TOPBARS
+========================================================== */
+
+:root {
+    --kd-status-height: 44px;
+    --kd-user-topbar-height: 88px;
+    --kd-topbar-total-height: 132px;
+    --kd-topbar-z: 8000;
+    --kd-toast-z: 99999;
+}
+
+body {
+    padding-top: var(--kd-topbar-total-height);
+}
+
+/* ==========================================================
+   STATUS TOPBAR COLORS
+========================================================== */
+
+.kd-status-topbar {
+    width: 100%;
+    height: var(--kd-status-height);
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: var(--kd-topbar-z);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    transition: background .25s ease, box-shadow .25s ease;
+}
+
+.kd-status-open {
+    background: linear-gradient(90deg, #15803d, #16a34a, #22c55e);
+    box-shadow: 0 8px 24px rgba(22, 163, 74, .24);
+}
+
+.kd-status-closed {
+    background: linear-gradient(90deg, #991b1b, #dc2626, #ef4444);
+    box-shadow: 0 8px 24px rgba(220, 38, 38, .24);
+}
+
+.kd-status-closing-soon {
+    background: linear-gradient(90deg, #b45309, #f59e0b, #fbbf24);
+    box-shadow: 0 8px 24px rgba(245, 158, 11, .25);
+}
+
+.kd-status-opening-soon {
+    background: linear-gradient(90deg, #1d4ed8, #2563eb, #60a5fa);
+    box-shadow: 0 8px 24px rgba(37, 99, 235, .25);
+}
+
+.kd-status-maintenance {
+    background: linear-gradient(90deg, #5b21b6, #7c3aed, #a78bfa);
+    box-shadow: 0 8px 24px rgba(124, 58, 237, .25);
+}
+
+html[data-theme="dark"] .kd-status-open,
+body.dark-mode .kd-status-open {
+    background: linear-gradient(90deg, #14532d, #15803d, #16a34a);
+}
+
+html[data-theme="dark"] .kd-status-closed,
+body.dark-mode .kd-status-closed {
+    background: linear-gradient(90deg, #7f1d1d, #991b1b, #b91c1c);
+}
+
+html[data-theme="dark"] .kd-status-closing-soon,
+body.dark-mode .kd-status-closing-soon {
+    background: linear-gradient(90deg, #92400e, #b45309, #d97706);
+}
+
+html[data-theme="dark"] .kd-status-opening-soon,
+body.dark-mode .kd-status-opening-soon {
+    background: linear-gradient(90deg, #1e3a8a, #1d4ed8, #2563eb);
+}
+
+html[data-theme="dark"] .kd-status-maintenance,
+body.dark-mode .kd-status-maintenance {
+    background: linear-gradient(90deg, #4c1d95, #5b21b6, #6d28d9);
+}
+
+/* ==========================================================
+   MAIN USER TOPBAR
+========================================================== */
+
+.kd-user-topbar {
+    width: 100%;
+    height: var(--kd-user-topbar-height);
+    background: var(--kd-topbar-bg, #ffffff);
+    border-bottom: 1px solid rgba(15, 23, 42, .08);
+    box-shadow: 0 8px 30px rgba(15, 23, 42, .06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 34px;
+    position: fixed;
+    top: var(--kd-status-height);
+    left: 0;
+    right: 0;
+    z-index: calc(var(--kd-topbar-z) - 1);
+    transition: background .25s ease, border-color .25s ease, box-shadow .25s ease;
+}
+
+html[data-theme="dark"] .kd-user-topbar,
+body.dark-mode .kd-user-topbar {
+    background: #0f172a;
+    border-bottom: 1px solid rgba(255, 255, 255, .08);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, .25);
+}
+
+/* ==========================================================
+   TOAST FIX - ALWAYS ABOVE TOPBAR AND LOWER THAN TOPBAR AREA
+========================================================== */
+
+.kd-checker-toast,
+.kd-dashboard-toast,
+.kd-toast,
+.kd-alert-toast,
+.toast,
+.swal2-container {
+    z-index: var(--kd-toast-z) !important;
+}
+
+.kd-checker-toast,
+.kd-dashboard-toast,
+.kd-toast,
+.kd-alert-toast {
+    top: calc(var(--kd-topbar-total-height) + 18px) !important;
+}
+
+/* ==========================================================
+   STATUS MARQUEE
+========================================================== */
+
+.kd-status-track {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.kd-status-track::before,
+.kd-status-track::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 90px;
+    height: 100%;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.kd-status-track::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(0, 0, 0, .18), transparent);
+}
+
+.kd-status-track::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(0, 0, 0, .18), transparent);
+}
+
+.kd-status-marquee {
+    display: inline-flex;
+    align-items: center;
+    gap: 42px;
+    min-width: max-content;
+    padding-left: 100%;
+    animation: kdStatusMarquee 75s linear infinite;
+    will-change: transform;
+}
+
+.kd-status-marquee:hover {
+    animation-play-state: paused;
+}
+
+.kd-status-marquee span {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: .25px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, .16);
+}
+
+.kd-status-marquee span:not(:last-child)::after {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .58);
+    margin-left: 26px;
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, .10);
+}
+
+.kd-status-marquee i {
+    color: rgba(255, 255, 255, .95);
+    font-size: 13px;
+}
+
+.kd-status-marquee a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 28px;
+    padding: 0 15px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, .18);
+    border: 1px solid rgba(255, 255, 255, .22);
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 900;
+    text-decoration: none;
+    margin-left: 6px;
+    transition: all .25s ease;
+}
+
+.kd-status-marquee a:hover {
+    background: #ffffff;
+    color: #0f172a;
+    transform: translateY(-1px);
+}
+
+@keyframes kdStatusMarquee {
+    0% {
+        transform: translate3d(0, 0, 0);
+    }
+
+    100% {
+        transform: translate3d(-100%, 0, 0);
+    }
+}
+
+/* ==========================================================
+   LOGO
+========================================================== */
+
+.kd-topbar-logo {
+    display: flex;
+    align-items: center;
+    min-width: 0;
+}
+
+.kd-topbar-logo a {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.kd-topbar-logo img {
+    height: 52px;
+    width: auto;
+    max-width: 180px;
+    object-fit: contain;
+    display: block;
+}
+
+/* ==========================================================
+   ACTIONS
+========================================================== */
+
+.kd-topbar-actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-left: auto;
+}
+
+.kd-topbar-icon,
+.kd-topbar-profile {
+    width: 46px;
+    height: 46px;
+    min-width: 46px;
+    border-radius: 16px;
+    border: 1px solid rgba(37, 99, 235, .14);
+    background: #ffffff;
+    color: #2563eb;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    font-size: 17px;
+    line-height: 1;
+    transition: all .25s ease;
+    box-shadow: 0 8px 20px rgba(37, 99, 235, .06);
+    outline: none;
+}
+
+html[data-theme="dark"] .kd-topbar-icon,
+html[data-theme="dark"] .kd-topbar-profile,
+body.dark-mode .kd-topbar-icon,
+body.dark-mode .kd-topbar-profile {
+    background: #111827;
+    border-color: rgba(96, 165, 250, .20);
+    color: #93c5fd;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, .18);
+}
+
+.kd-topbar-icon:hover,
+.kd-topbar-profile:hover,
+.kd-topbar-icon.active {
+    background: #2563eb;
+    color: #ffffff !important;
+    border-color: #2563eb;
+    transform: translateY(-2px);
+    box-shadow: 0 16px 32px rgba(37, 99, 235, .22);
+}
+
+.kd-topbar-profile {
+    background: #2563eb;
+    color: #ffffff !important;
+    border-color: #2563eb;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: .4px;
+}
+
+.kd-topbar-profile:hover {
+    background: #1d4ed8;
+    border-color: #1d4ed8;
+}
+
+/* ==========================================================
+   NOTIFICATION DOT
+========================================================== */
+
+.kd-has-alert span {
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: #22c55e;
+    border: 2px solid #ffffff;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+html[data-theme="dark"] .kd-has-alert span,
+body.dark-mode .kd-has-alert span {
+    border-color: #111827;
+}
+
+/* ==========================================================
+   BUTTON AND ICON FIXES
+========================================================== */
+
+button.kd-topbar-icon {
+    appearance: none;
+    -webkit-appearance: none;
+    font-family: inherit;
+}
+
+.kd-topbar-icon i,
+.kd-topbar-profile i,
+.kd-status-marquee i {
+    font-style: normal !important;
+    line-height: 1 !important;
+}
+
+.kd-topbar-icon .fa-solid,
+.kd-topbar-icon .fas,
+.kd-status-marquee .fa-solid,
+.kd-status-marquee .fas {
+    font-weight: 900 !important;
+}
+
+.kd-topbar-icon .fa-regular,
+.kd-topbar-icon .far {
+    font-weight: 400 !important;
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width: 768px) {
+    :root {
+        --kd-status-height: 40px;
+        --kd-user-topbar-height: 78px;
+        --kd-topbar-total-height: 118px;
+    }
+
+    body {
+        padding-top: var(--kd-topbar-total-height);
+    }
+
+    .kd-status-track::before,
+    .kd-status-track::after {
+        width: 55px;
+    }
+
+    .kd-status-marquee {
+        gap: 32px;
+        animation-duration: 65s;
+    }
+
+    .kd-status-marquee span {
+        font-size: 12px;
+        gap: 8px;
+    }
+
+    .kd-status-marquee span:not(:last-child)::after {
+        margin-left: 18px;
+    }
+
+    .kd-status-marquee a {
+        height: 26px;
+        padding: 0 12px;
+        font-size: 11px;
+    }
+
+    .kd-user-topbar {
+        padding: 0 18px;
+    }
+
+    .kd-topbar-logo img {
+        height: 42px;
+        max-width: 145px;
+    }
+
+    .kd-topbar-actions {
+        gap: 8px;
+    }
+
+    .kd-topbar-icon,
+    .kd-topbar-profile {
+        width: 42px;
+        height: 42px;
+        min-width: 42px;
+        border-radius: 14px;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 520px) {
+    :root {
+        --kd-status-height: 38px;
+        --kd-user-topbar-height: 72px;
+        --kd-topbar-total-height: 110px;
+    }
+
+    body {
+        padding-top: var(--kd-topbar-total-height);
+    }
+
+    .kd-user-topbar {
+        padding: 0 12px;
+    }
+
+    .kd-status-track::before,
+    .kd-status-track::after {
+        width: 38px;
+    }
+
+    .kd-status-marquee {
+        gap: 26px;
+        animation-duration: 58s;
+    }
+
+    .kd-status-marquee span {
+        font-size: 11px;
+        gap: 7px;
+    }
+
+    .kd-status-marquee span:not(:last-child)::after {
+        width: 5px;
+        height: 5px;
+        margin-left: 14px;
+    }
+
+    .kd-status-marquee a {
+        height: 24px;
+        padding: 0 10px;
+        font-size: 10px;
+    }
+
+    .kd-topbar-logo img {
+        height: 38px;
+        max-width: 115px;
+    }
+
+    .kd-topbar-actions {
+        gap: 6px;
+    }
+
+    .kd-topbar-icon,
+    .kd-topbar-profile {
+        width: 38px;
+        height: 38px;
+        min-width: 38px;
+        border-radius: 12px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 390px) {
+    .kd-topbar-logo img {
+        max-width: 96px;
+    }
+
+    .kd-topbar-icon,
+    .kd-topbar-profile {
+        width: 35px;
+        height: 35px;
+        min-width: 35px;
+        border-radius: 11px;
+        font-size: 13px;
+    }
+
+    .kd-topbar-actions {
+        gap: 5px;
+    }
+}

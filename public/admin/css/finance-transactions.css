@@ -1,0 +1,796 @@
+/* ==========================================================
+   FINANCE TRANSACTIONS PAGE - PROFESSIONAL LIGHT / DARK
+========================================================== */
+
+.kd-transactions-page {
+    padding: 24px;
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.kd-transactions-header {
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, .95);
+    border-radius: 24px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 20px 60px rgba(15, 23, 42, .06);
+}
+
+.kd-page-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(37, 99, 235, .1);
+    color: #2563eb;
+    font-size: 12px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+}
+
+.kd-transactions-header h3 {
+    margin: 14px 0 6px;
+    color: #0f172a;
+    font-size: 25px;
+    font-weight: 950;
+}
+
+.kd-transactions-header p {
+    margin: 0;
+    color: #64748b;
+    font-size: 14px;
+    font-weight: 650;
+}
+
+/* ==========================================================
+   FILTER CARD
+========================================================== */
+
+.kd-filter-card {
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, .95);
+    border-radius: 22px;
+    padding: 18px;
+    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 14px;
+    align-items: end;
+    box-shadow: 0 18px 50px rgba(15, 23, 42, .055);
+}
+
+.kd-filter-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.kd-filter-group label {
+    color: #334155;
+    font-size: 12px;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: .03em;
+}
+
+.kd-filter-group input,
+.kd-filter-group select {
+    width: 100%;
+    height: 46px;
+    border: 1px solid #dbe3ef;
+    border-radius: 14px;
+    padding: 0 14px;
+    background: #f8fafc;
+    color: #0f172a;
+    font-size: 13px;
+    font-weight: 800;
+    outline: none;
+    transition: .25s ease;
+}
+
+.kd-filter-group input:focus,
+.kd-filter-group select:focus {
+    border-color: #2563eb;
+    background: #ffffff;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, .10);
+}
+
+.kd-filter-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.kd-filter-btn,
+.kd-reset-btn {
+    height: 46px;
+    border-radius: 14px;
+    padding: 0 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    border: 0;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 950;
+    white-space: nowrap;
+    transition: .25s ease;
+}
+
+.kd-filter-btn {
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+    color: #ffffff;
+    box-shadow: 0 12px 24px rgba(37, 99, 235, .22);
+}
+
+.kd-reset-btn {
+    background: #f1f5f9;
+    color: #334155;
+    border: 1px solid #e2e8f0;
+}
+
+.kd-filter-btn:hover,
+.kd-reset-btn:hover {
+    transform: translateY(-1px);
+}
+
+/* ==========================================================
+   STATS
+========================================================== */
+
+.kd-stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-bottom: 20px;
+}
+
+.kd-stat-card {
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, .95);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 16px 40px rgba(15, 23, 42, .05);
+}
+
+.kd-stat-card span {
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 850;
+}
+
+.kd-stat-card h4 {
+    margin: 8px 0 0;
+    color: #0f172a;
+    font-size: 23px;
+    font-weight: 950;
+}
+
+/* ==========================================================
+   TABLE CARD
+========================================================== */
+
+.kd-table-card {
+    background: #ffffff;
+    border: 1px solid rgba(226, 232, 240, .95);
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(15, 23, 42, .06);
+}
+
+.kd-table-header {
+    padding: 22px 24px;
+    border-bottom: 1px solid rgba(226, 232, 240, .9);
+}
+
+.kd-table-header h4 {
+    margin: 0;
+    color: #0f172a;
+    font-size: 18px;
+    font-weight: 950;
+}
+
+.kd-table-header p {
+    margin: 5px 0 0;
+    color: #64748b;
+    font-size: 13px;
+    font-weight: 650;
+}
+
+.kd-table-responsive {
+    padding: 18px;
+    overflow-x: auto;
+}
+
+.kd-table {
+    width: 100% !important;
+    border-collapse: collapse !important;
+}
+
+.kd-table thead th {
+    background: #f8fafc;
+    color: #334155;
+    font-size: 12px;
+    font-weight: 950;
+    text-transform: uppercase;
+    padding: 15px 12px;
+    border-bottom: 1px solid #e2e8f0;
+    white-space: nowrap;
+}
+
+.kd-table tbody td {
+    padding: 15px 12px;
+    color: #334155;
+    font-size: 13px;
+    font-weight: 750;
+    border-bottom: 1px solid #f1f5f9;
+    vertical-align: middle;
+}
+
+.kd-table tbody td small {
+    display: block;
+    margin-top: 4px;
+    color: #64748b;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+/* ==========================================================
+   DATATABLE CONTROLS
+========================================================== */
+
+.dataTables_wrapper {
+    color: #334155;
+}
+
+.dataTables_wrapper .dataTables_length,
+.dataTables_wrapper .dataTables_filter {
+    margin-bottom: 16px;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+    height: 42px;
+    border: 1px solid #dbe3ef;
+    border-radius: 14px;
+    padding: 0 14px;
+    outline: none;
+    font-weight: 800;
+    background: #ffffff;
+    color: #0f172a;
+}
+
+.dataTables_wrapper .dataTables_length select {
+    height: 40px;
+    border: 1px solid #dbe3ef;
+    border-radius: 12px;
+    padding: 0 10px;
+    background: #ffffff;
+    color: #0f172a;
+    font-weight: 800;
+}
+
+.dataTables_wrapper .dataTables_info {
+    color: #475569;
+    font-size: 13px;
+    font-weight: 800;
+    padding-top: 16px;
+}
+
+.dataTables_wrapper .dataTables_paginate {
+    padding-top: 14px;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    border: 1px solid #e2e8f0 !important;
+    background: #ffffff !important;
+    color: #334155 !important;
+    border-radius: 10px !important;
+    padding: 7px 12px !important;
+    margin: 0 3px !important;
+    font-weight: 850;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background: linear-gradient(135deg, #2563eb, #4f46e5) !important;
+    color: #ffffff !important;
+    border-color: transparent !important;
+}
+
+.dataTables_wrapper .dataTables_paginate .paginate_button.disabled {
+    opacity: .45;
+}
+
+/* ==========================================================
+   DATATABLE LOADER - FIXED PROFESSIONAL
+========================================================== */
+
+.dataTables_processing {
+    position: absolute !important;
+    top: 55% !important;
+    left: 50% !important;
+    width: auto !important;
+    min-width: 260px !important;
+    height: auto !important;
+    margin: 0 !important;
+    transform: translate(-50%, -50%) !important;
+    padding: 18px 22px 18px 56px !important;
+    border-radius: 18px !important;
+    background: rgba(255, 255, 255, .96) !important;
+    border: 1px solid rgba(226, 232, 240, .95) !important;
+    box-shadow: 0 22px 60px rgba(15, 23, 42, .14) !important;
+    color: #0f172a !important;
+    font-size: 14px !important;
+    font-weight: 900 !important;
+    text-align: left !important;
+    z-index: 20 !important;
+}
+
+.dataTables_processing::before {
+    content: "";
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    width: 22px;
+    height: 22px;
+    margin-top: -11px;
+    border-radius: 999px;
+    border: 3px solid rgba(37, 99, 235, .18);
+    border-top-color: #2563eb;
+    animation: kdSpin .75s linear infinite;
+}
+
+.dataTables_processing::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    border-radius: 18px;
+    pointer-events: none;
+    background: linear-gradient(135deg, rgba(37, 99, 235, .12), transparent 45%);
+}
+
+@keyframes kdSpin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Remove ugly DataTables blue dots/extra background */
+table.dataTable tbody tr > .dataTables_empty,
+table.dataTable tbody td.dataTables_empty {
+    text-align: center !important;
+    padding: 34px 16px !important;
+    color: #64748b !important;
+    font-weight: 850 !important;
+}
+
+.kd-empty {
+    text-align: center;
+    padding: 35px !important;
+    color: #64748b !important;
+}
+
+/* ==========================================================
+   TYPE BADGES
+========================================================== */
+
+.kd-type {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 90px;
+    padding: 8px 13px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    border: 1px solid transparent;
+    white-space: nowrap;
+}
+
+.kd-type.afa,
+.kd-type.afa-payment {
+    background: rgba(37, 99, 235, .12);
+    color: #2563eb;
+    border-color: rgba(37, 99, 235, .22);
+}
+
+.kd-type.order {
+    background: rgba(147, 51, 234, .12);
+    color: #7e22ce;
+    border-color: rgba(147, 51, 234, .22);
+}
+
+.kd-type.topup,
+.kd-type.top-up {
+    background: rgba(22, 163, 74, .12);
+    color: #16a34a;
+    border-color: rgba(22, 163, 74, .22);
+}
+
+.kd-type.wallet {
+    background: rgba(14, 165, 233, .12);
+    color: #0284c7;
+    border-color: rgba(14, 165, 233, .22);
+}
+
+/* ==========================================================
+   STATUS BADGES
+========================================================== */
+
+.kd-status {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 112px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+    border: 1px solid transparent;
+    white-space: nowrap;
+}
+
+/* Successful states */
+.kd-status.success,
+.kd-status.successful,
+.kd-status.completed,
+.kd-status.paid,
+.kd-status.approved,
+.kd-status.delivered {
+    background: rgba(22, 163, 74, .14);
+    color: #15803d;
+    border-color: rgba(22, 163, 74, .28);
+}
+
+/* Processing states */
+.kd-status.processing,
+.kd-status.in-progress,
+.kd-status.in_progress {
+    background: rgba(37, 99, 235, .14);
+    color: #2563eb;
+    border-color: rgba(37, 99, 235, .28);
+}
+
+/* Pending */
+.kd-status.pending {
+    background: rgba(245, 158, 11, .16);
+    color: #b45309;
+    border-color: rgba(245, 158, 11, .30);
+}
+
+/* Failed */
+.kd-status.failed {
+    background: rgba(220, 38, 38, .13);
+    color: #dc2626;
+    border-color: rgba(220, 38, 38, .25);
+}
+
+/* Cancelled */
+.kd-status.cancelled,
+.kd-status.canceled {
+    background: rgba(100, 116, 139, .16);
+    color: #475569;
+    border-color: rgba(100, 116, 139, .24);
+}
+
+/* Refunded */
+.kd-status.refunded {
+    background: rgba(139, 92, 246, .14);
+    color: #7c3aed;
+    border-color: rgba(139, 92, 246, .25);
+}
+
+/* Credit / Debit */
+.kd-status.credit {
+    background: rgba(22, 163, 74, .14);
+    color: #15803d;
+    border-color: rgba(22, 163, 74, .28);
+}
+
+.kd-status.debit {
+    background: rgba(239, 68, 68, .13);
+    color: #dc2626;
+    border-color: rgba(239, 68, 68, .26);
+}
+
+/* ==========================================================
+   DARK MODE
+========================================================== */
+
+html[data-theme="dark"] .kd-transactions-header,
+html[data-theme="dark"] .kd-stat-card,
+html[data-theme="dark"] .kd-table-card,
+html[data-theme="dark"] .kd-filter-card,
+body.dark-mode .kd-transactions-header,
+body.dark-mode .kd-stat-card,
+body.dark-mode .kd-table-card,
+body.dark-mode .kd-filter-card {
+    background: #0f172a;
+    border-color: rgba(255, 255, 255, .08);
+}
+
+html[data-theme="dark"] .kd-transactions-header h3,
+html[data-theme="dark"] .kd-stat-card h4,
+html[data-theme="dark"] .kd-table-header h4,
+body.dark-mode .kd-transactions-header h3,
+body.dark-mode .kd-stat-card h4,
+body.dark-mode .kd-table-header h4 {
+    color: #f8fafc;
+}
+
+html[data-theme="dark"] .kd-transactions-header p,
+html[data-theme="dark"] .kd-stat-card span,
+html[data-theme="dark"] .kd-table-header p,
+body.dark-mode .kd-transactions-header p,
+body.dark-mode .kd-stat-card span,
+body.dark-mode .kd-table-header p {
+    color: #94a3b8;
+}
+
+html[data-theme="dark"] .kd-filter-group label,
+body.dark-mode .kd-filter-group label {
+    color: #cbd5e1;
+}
+
+html[data-theme="dark"] .kd-filter-group input,
+html[data-theme="dark"] .kd-filter-group select,
+body.dark-mode .kd-filter-group input,
+body.dark-mode .kd-filter-group select {
+    background: #111827;
+    border-color: rgba(255, 255, 255, .10);
+    color: #e5e7eb;
+}
+
+html[data-theme="dark"] .kd-reset-btn,
+body.dark-mode .kd-reset-btn {
+    background: #111827;
+    color: #e5e7eb;
+    border-color: rgba(255, 255, 255, .10);
+}
+
+html[data-theme="dark"] .kd-table thead th,
+body.dark-mode .kd-table thead th {
+    background: #111827;
+    color: #cbd5e1;
+    border-color: rgba(255, 255, 255, .08);
+}
+
+html[data-theme="dark"] .kd-table tbody td,
+body.dark-mode .kd-table tbody td {
+    color: #e5e7eb;
+    border-color: rgba(255, 255, 255, .06);
+}
+
+html[data-theme="dark"] .kd-table tbody td small,
+body.dark-mode .kd-table tbody td small {
+    color: #94a3b8;
+}
+
+html[data-theme="dark"] .dataTables_wrapper,
+body.dark-mode .dataTables_wrapper {
+    color: #cbd5e1;
+}
+
+html[data-theme="dark"] .dataTables_wrapper .dataTables_filter input,
+html[data-theme="dark"] .dataTables_wrapper .dataTables_length select,
+body.dark-mode .dataTables_wrapper .dataTables_filter input,
+body.dark-mode .dataTables_wrapper .dataTables_length select {
+    background: #111827;
+    color: #e5e7eb;
+    border-color: rgba(255, 255, 255, .12);
+}
+
+html[data-theme="dark"] .dataTables_wrapper .dataTables_info,
+body.dark-mode .dataTables_wrapper .dataTables_info {
+    color: #94a3b8;
+}
+
+html[data-theme="dark"] .dataTables_wrapper .dataTables_paginate .paginate_button,
+body.dark-mode .dataTables_wrapper .dataTables_paginate .paginate_button {
+    background: #111827 !important;
+    color: #cbd5e1 !important;
+    border-color: rgba(255, 255, 255, .10) !important;
+}
+
+html[data-theme="dark"] .dataTables_wrapper .dataTables_paginate .paginate_button.current,
+body.dark-mode .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    background: linear-gradient(135deg, #2563eb, #4f46e5) !important;
+    color: #ffffff !important;
+}
+
+html[data-theme="dark"] .dataTables_processing,
+body.dark-mode .dataTables_processing {
+    background: rgba(15, 23, 42, .96) !important;
+    border-color: rgba(255, 255, 255, .10) !important;
+    color: #f8fafc !important;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, .42) !important;
+}
+
+html[data-theme="dark"] .dataTables_processing::before,
+body.dark-mode .dataTables_processing::before {
+    border-color: rgba(96, 165, 250, .20);
+    border-top-color: #60a5fa;
+}
+
+html[data-theme="dark"] table.dataTable tbody tr > .dataTables_empty,
+html[data-theme="dark"] table.dataTable tbody td.dataTables_empty,
+body.dark-mode table.dataTable tbody tr > .dataTables_empty,
+body.dark-mode table.dataTable tbody td.dataTables_empty {
+    color: #94a3b8 !important;
+}
+
+/* Dark type badges */
+html[data-theme="dark"] .kd-type.afa,
+html[data-theme="dark"] .kd-type.afa-payment,
+body.dark-mode .kd-type.afa,
+body.dark-mode .kd-type.afa-payment {
+    background: rgba(37, 99, 235, .18);
+    color: #60a5fa;
+}
+
+html[data-theme="dark"] .kd-type.order,
+body.dark-mode .kd-type.order {
+    background: rgba(147, 51, 234, .18);
+    color: #c084fc;
+}
+
+html[data-theme="dark"] .kd-type.topup,
+html[data-theme="dark"] .kd-type.top-up,
+body.dark-mode .kd-type.topup,
+body.dark-mode .kd-type.top-up {
+    background: rgba(22, 163, 74, .18);
+    color: #4ade80;
+}
+
+html[data-theme="dark"] .kd-type.wallet,
+body.dark-mode .kd-type.wallet {
+    background: rgba(14, 165, 233, .18);
+    color: #38bdf8;
+}
+
+/* Dark status badges */
+html[data-theme="dark"] .kd-status.success,
+html[data-theme="dark"] .kd-status.successful,
+html[data-theme="dark"] .kd-status.completed,
+html[data-theme="dark"] .kd-status.paid,
+html[data-theme="dark"] .kd-status.approved,
+html[data-theme="dark"] .kd-status.delivered,
+body.dark-mode .kd-status.success,
+body.dark-mode .kd-status.successful,
+body.dark-mode .kd-status.completed,
+body.dark-mode .kd-status.paid,
+body.dark-mode .kd-status.approved,
+body.dark-mode .kd-status.delivered {
+    background: rgba(22, 163, 74, .18);
+    color: #4ade80;
+}
+
+html[data-theme="dark"] .kd-status.processing,
+html[data-theme="dark"] .kd-status.in-progress,
+html[data-theme="dark"] .kd-status.in_progress,
+body.dark-mode .kd-status.processing,
+body.dark-mode .kd-status.in-progress,
+body.dark-mode .kd-status.in_progress {
+    background: rgba(37, 99, 235, .20);
+    color: #60a5fa;
+}
+
+html[data-theme="dark"] .kd-status.pending,
+body.dark-mode .kd-status.pending {
+    background: rgba(245, 158, 11, .18);
+    color: #fbbf24;
+}
+
+html[data-theme="dark"] .kd-status.failed,
+body.dark-mode .kd-status.failed {
+    background: rgba(239, 68, 68, .18);
+    color: #f87171;
+}
+
+html[data-theme="dark"] .kd-status.cancelled,
+html[data-theme="dark"] .kd-status.canceled,
+body.dark-mode .kd-status.cancelled,
+body.dark-mode .kd-status.canceled {
+    background: rgba(100, 116, 139, .20);
+    color: #cbd5e1;
+}
+
+html[data-theme="dark"] .kd-status.refunded,
+body.dark-mode .kd-status.refunded {
+    background: rgba(139, 92, 246, .18);
+    color: #c4b5fd;
+}
+
+html[data-theme="dark"] .kd-status.credit,
+body.dark-mode .kd-status.credit {
+    background: rgba(22, 163, 74, .18);
+    color: #4ade80;
+}
+
+html[data-theme="dark"] .kd-status.debit,
+body.dark-mode .kd-status.debit {
+    background: rgba(239, 68, 68, .18);
+    color: #f87171;
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width: 1200px) {
+    .kd-filter-card {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 991px) {
+    .kd-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .kd-filter-card {
+        grid-template-columns: 1fr;
+    }
+
+    .kd-filter-actions {
+        flex-direction: column;
+    }
+
+    .kd-filter-btn,
+    .kd-reset-btn {
+        width: 100%;
+    }
+
+    .dataTables_wrapper .dataTables_length,
+    .dataTables_wrapper .dataTables_filter {
+        float: none !important;
+        text-align: left !important;
+        width: 100%;
+    }
+
+    .dataTables_wrapper .dataTables_filter input {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 8px;
+    }
+}
+
+@media (max-width: 576px) {
+    .kd-transactions-page {
+        padding: 14px;
+    }
+
+    .kd-stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .kd-transactions-header,
+    .kd-filter-card,
+    .kd-table-card,
+    .kd-stat-card {
+        border-radius: 18px;
+    }
+
+    .kd-table-responsive {
+        padding: 12px;
+    }
+
+    .dataTables_processing {
+        min-width: 220px !important;
+        padding: 16px 18px 16px 52px !important;
+        font-size: 13px !important;
+    }
+}

@@ -1,0 +1,312 @@
+/* ==========================================================
+   FLOATING WHATSAPP CHANNEL
+   Professional responsive version
+   Text shows properly on smaller screens
+========================================================== */
+
+.kd-whatsapp-channel {
+    position: fixed;
+    left: 18px;
+    bottom: 96px;
+    z-index: 99990;
+
+    width: 58px;
+    max-width: calc(100vw - 36px);
+    height: 58px;
+    padding: 0 18px 0 0;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    border-radius: 999px;
+    text-decoration: none;
+    overflow: hidden;
+
+    background:
+        radial-gradient(circle at 25% 20%, rgba(255,255,255,.35), transparent 28%),
+        linear-gradient(135deg, #128c3c 0%, #22c55e 100%);
+
+    color: #ffffff !important;
+    border: 4px solid rgba(255,255,255,.92);
+
+    box-shadow:
+        0 18px 45px rgba(22,163,74,.35),
+        0 0 0 8px rgba(34,197,94,.13);
+
+    animation: kdWhatsappExpand 10s ease-in-out infinite;
+    transition: transform .25s ease, box-shadow .25s ease, width .25s ease;
+}
+
+.kd-whatsapp-channel:hover {
+    width: 225px;
+    transform: translateY(-4px) scale(1.02);
+    box-shadow:
+        0 24px 60px rgba(22,163,74,.45),
+        0 0 0 11px rgba(34,197,94,.18);
+}
+
+.kd-whatsapp-channel-icon {
+    width: 50px;
+    min-width: 50px;
+    height: 50px;
+
+    display: grid;
+    place-items: center;
+
+    border-radius: 50%;
+    color: #ffffff !important;
+    font-size: 28px;
+
+    background:
+        radial-gradient(circle at 30% 18%, rgba(255,255,255,.38), transparent 30%),
+        linear-gradient(135deg, #16a34a, #22c55e);
+
+    box-shadow: inset 0 0 0 1px rgba(255,255,255,.25);
+    animation: kdWhatsappIconBounce 2.6s ease-in-out infinite;
+}
+
+.kd-whatsapp-channel-icon i {
+    color: #ffffff !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+.kd-whatsapp-channel-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    min-width: 130px;
+    line-height: 1.1;
+
+    opacity: 0;
+    transform: translateX(-8px);
+    white-space: nowrap;
+
+    animation: kdWhatsappTextShow 10s ease-in-out infinite;
+}
+
+.kd-whatsapp-channel:hover .kd-whatsapp-channel-text {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.kd-whatsapp-channel-text strong {
+    font-size: 13px;
+    font-weight: 900;
+    letter-spacing: .03em;
+    text-transform: uppercase;
+    color: #ffffff;
+}
+
+.kd-whatsapp-channel-text small {
+    margin-top: 3px;
+    font-size: 11px;
+    font-weight: 700;
+    color: rgba(255,255,255,.86);
+}
+
+.kd-whatsapp-channel-pulse {
+    position: absolute;
+    inset: -8px;
+    border-radius: 999px;
+    background: rgba(34,197,94,.26);
+    z-index: -1;
+    animation: kdWhatsappPulse 2.4s ease-out infinite;
+}
+
+.kd-whatsapp-channel::after {
+    content: "";
+    position: absolute;
+    right: 8px;
+    top: 7px;
+
+    width: 11px;
+    height: 11px;
+
+    border-radius: 50%;
+    background: #ef4444;
+    border: 2px solid #ffffff;
+
+    box-shadow: 0 0 0 4px rgba(239,68,68,.16);
+}
+
+/* DESKTOP / NORMAL SCREENS */
+@keyframes kdWhatsappExpand {
+    0%, 80%, 100% {
+        width: 58px;
+    }
+
+    85%, 95% {
+        width: 225px;
+    }
+}
+
+@keyframes kdWhatsappTextShow {
+    0%, 80%, 100% {
+        opacity: 0;
+        transform: translateX(-8px);
+    }
+
+    85%, 95% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes kdWhatsappPulse {
+    0% {
+        transform: scale(.85);
+        opacity: .55;
+    }
+
+    70% {
+        transform: scale(1.25);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1.25);
+        opacity: 0;
+    }
+}
+
+@keyframes kdWhatsappIconBounce {
+    0%, 100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.08);
+    }
+}
+
+/* DARK MODE */
+body.dark-mode .kd-whatsapp-channel,
+html[data-theme="dark"] .kd-whatsapp-channel {
+    border-color: rgba(15,23,42,.96);
+    box-shadow:
+        0 18px 45px rgba(0,0,0,.50),
+        0 0 0 8px rgba(34,197,94,.12);
+}
+
+/* TABLET / SMALL SCREENS */
+@media (max-width: 768px) {
+    .kd-whatsapp-channel {
+        left: 18px;
+        bottom: 92px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 640px) {
+    .kd-whatsapp-channel {
+        left: 14px;
+        bottom: 86px;
+
+        width: 52px;
+        height: 52px;
+        padding-right: 14px;
+        gap: 8px;
+
+        border-width: 3px;
+
+        animation: kdWhatsappMobileExpand 10s ease-in-out infinite;
+    }
+
+    .kd-whatsapp-channel:hover {
+        width: 205px;
+    }
+
+    .kd-whatsapp-channel-icon {
+        width: 46px;
+        min-width: 46px;
+        height: 46px;
+        font-size: 25px;
+    }
+
+    .kd-whatsapp-channel-text {
+        min-width: 125px;
+    }
+
+    .kd-whatsapp-channel-text strong {
+        font-size: 12px;
+    }
+
+    .kd-whatsapp-channel-text small {
+        font-size: 10px;
+    }
+
+    .kd-whatsapp-channel::after {
+        right: 7px;
+        top: 6px;
+    }
+}
+
+@keyframes kdWhatsappMobileExpand {
+    0%, 80%, 100% {
+        width: 52px;
+    }
+
+    85%, 95% {
+        width: 205px;
+    }
+}
+
+/* VERY SMALL SCREENS */
+@media (max-width: 390px) {
+    .kd-whatsapp-channel {
+        left: 12px;
+        bottom: 84px;
+
+        width: 50px;
+        height: 50px;
+        max-width: calc(100vw - 24px);
+
+        animation: kdWhatsappTinyExpand 10s ease-in-out infinite;
+    }
+
+    .kd-whatsapp-channel:hover {
+        width: 188px;
+    }
+
+    .kd-whatsapp-channel-icon {
+        width: 44px;
+        min-width: 44px;
+        height: 44px;
+        font-size: 23px;
+    }
+
+    .kd-whatsapp-channel-text {
+        min-width: 112px;
+    }
+
+    .kd-whatsapp-channel-text strong {
+        font-size: 11px;
+    }
+
+    .kd-whatsapp-channel-text small {
+        font-size: 9px;
+    }
+}
+
+@keyframes kdWhatsappTinyExpand {
+    0%, 80%, 100% {
+        width: 50px;
+    }
+
+    85%, 95% {
+        width: 188px;
+    }
+}
+
+/* REDUCE MOTION */
+@media (prefers-reduced-motion: reduce) {
+    .kd-whatsapp-channel,
+    .kd-whatsapp-channel-text,
+    .kd-whatsapp-channel-icon,
+    .kd-whatsapp-channel-pulse {
+        animation: none !important;
+    }
+}

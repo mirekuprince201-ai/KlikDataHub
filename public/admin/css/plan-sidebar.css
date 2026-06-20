@@ -1,0 +1,647 @@
+body.kd-sidebar-open {
+    overflow: hidden !important;
+}
+
+/* ==========================================================
+   BACKDROP
+========================================================== */
+
+.kd-plan-sidebar-backdrop {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100dvh !important;
+    background: rgba(2, 6, 23, .60) !important;
+    backdrop-filter: blur(5px) !important;
+    -webkit-backdrop-filter: blur(5px) !important;
+    z-index: 999998 !important;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .25s ease, visibility .25s ease;
+}
+
+.kd-plan-sidebar-backdrop.show {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+/* ==========================================================
+   SIDEBAR
+========================================================== */
+
+.kd-plan-sidebar {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 560px !important;
+    max-width: 100% !important;
+    height: 100dvh !important;
+    background: var(--kd-card-bg, #ffffff) !important;
+    color: var(--kd-text-main, #0f172a) !important;
+    z-index: 999999 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    transform: translateX(105%);
+    transition: transform .28s ease;
+    box-shadow: -30px 0 70px rgba(2, 6, 23, .25) !important;
+    border-left: 1px solid var(--kd-border, rgba(15, 23, 42, .10)) !important;
+    overflow: hidden !important;
+}
+
+.kd-plan-sidebar.show {
+    transform: translateX(0) !important;
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.kd-plan-sidebar-header {
+    flex: 0 0 auto !important;
+    min-height: 126px !important;
+    padding: 28px 28px 24px !important;
+    border-bottom: 1px solid var(--kd-border, rgba(15, 23, 42, .10)) !important;
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: flex-start !important;
+    gap: 18px !important;
+    background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, .12), transparent 38%),
+        var(--kd-card-bg, #ffffff) !important;
+}
+
+.kd-plan-sidebar-header span {
+    display: inline-flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    color: #2563eb !important;
+    font-size: 12px !important;
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+    letter-spacing: .04em !important;
+    margin-bottom: 8px !important;
+}
+
+.kd-plan-sidebar-header h2 {
+    color: var(--kd-text-main, #0f172a) !important;
+    font-size: 26px !important;
+    font-weight: 900 !important;
+    letter-spacing: -.04em !important;
+    margin: 0 0 6px !important;
+}
+
+.kd-plan-sidebar-header p {
+    color: var(--kd-text-muted, #64748b) !important;
+    font-size: 13px !important;
+    font-weight: 600 !important;
+    line-height: 1.5 !important;
+    margin: 0 !important;
+}
+
+.kd-plan-sidebar-close {
+    width: 44px !important;
+    height: 44px !important;
+    border: 1px solid var(--kd-border, rgba(15, 23, 42, .10)) !important;
+    border-radius: 16px !important;
+    background: rgba(100, 116, 139, .10) !important;
+    color: var(--kd-text-main, #0f172a) !important;
+    display: grid !important;
+    place-items: center !important;
+    cursor: pointer !important;
+    font-size: 16px !important;
+    flex: 0 0 auto !important;
+    transition: all .22s ease !important;
+}
+
+.kd-plan-sidebar-close:hover {
+    background: rgba(220, 38, 38, .10) !important;
+    color: #dc2626 !important;
+    transform: rotate(90deg) !important;
+}
+
+/* ==========================================================
+   FORM LAYOUT
+========================================================== */
+
+.kd-plan-form {
+    flex: 1 !important;
+    min-height: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.kd-plan-sidebar-body {
+    flex: 1 !important;
+    min-height: 0 !important;
+    overflow-y: auto !important;
+    padding: 28px !important;
+}
+
+.kd-plan-sidebar-body::-webkit-scrollbar {
+    width: 7px;
+}
+
+.kd-plan-sidebar-body::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.kd-plan-sidebar-body::-webkit-scrollbar-thumb {
+    background: rgba(100, 116, 139, .35);
+    border-radius: 999px;
+}
+
+/* ==========================================================
+   FORM FIELDS
+========================================================== */
+
+.kd-form-row {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 15px !important;
+}
+
+.kd-form-group {
+    margin-bottom: 19px !important;
+}
+
+.kd-form-group label {
+    display: block !important;
+    color: var(--kd-text-main, #0f172a) !important;
+    font-size: 13px !important;
+    font-weight: 900 !important;
+    margin-bottom: 8px !important;
+}
+
+.kd-form-group label span {
+    color: #dc2626 !important;
+}
+
+.kd-form-group input,
+.kd-form-group select,
+.kd-form-group textarea {
+    width: 100% !important;
+    border: 1px solid var(--kd-border, rgba(15, 23, 42, .12)) !important;
+    border-radius: 16px !important;
+    background: var(--kd-card-bg, #ffffff) !important;
+    color: var(--kd-text-main, #0f172a) !important;
+    padding: 13px 15px !important;
+    font-size: 13px !important;
+    font-weight: 700 !important;
+    outline: none !important;
+    transition: border-color .22s ease, box-shadow .22s ease, background .22s ease !important;
+}
+
+.kd-form-group input,
+.kd-form-group select {
+    height: 52px !important;
+}
+
+.kd-form-group textarea {
+    min-height: 120px !important;
+    resize: none !important;
+    line-height: 1.55 !important;
+}
+
+.kd-form-group input::placeholder,
+.kd-form-group textarea::placeholder {
+    color: #94a3b8 !important;
+    font-weight: 600 !important;
+}
+
+.kd-form-group input:focus,
+.kd-form-group select:focus,
+.kd-form-group textarea:focus {
+    border-color: rgba(37, 99, 235, .60) !important;
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, .12) !important;
+}
+
+.kd-plan-category-select {
+    font-weight: 800 !important;
+    cursor: pointer !important;
+}
+
+/* ==========================================================
+   NETWORK PREVIEW
+========================================================== */
+
+.kd-network-preview-card {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+    padding: 18px !important;
+    border-radius: 22px !important;
+    margin-bottom: 24px !important;
+    background: linear-gradient(135deg, rgba(37, 99, 235, .09), rgba(124, 58, 237, .07)) !important;
+    border: 1px solid rgba(37, 99, 235, .18) !important;
+}
+
+.kd-network-preview-card span {
+    display: block !important;
+    color: var(--kd-text-muted, #64748b) !important;
+    font-size: 11px !important;
+    font-weight: 900 !important;
+    text-transform: uppercase !important;
+    letter-spacing: .04em !important;
+    margin-bottom: 5px !important;
+}
+
+.kd-network-preview-card strong {
+    display: block !important;
+    color: var(--kd-text-main, #0f172a) !important;
+    font-size: 20px !important;
+    font-weight: 900 !important;
+    letter-spacing: -.03em !important;
+}
+
+.kd-network-preview-card i {
+    width: 54px !important;
+    height: 54px !important;
+    border-radius: 18px !important;
+    display: grid !important;
+    place-items: center !important;
+    background: rgba(37, 99, 235, .12) !important;
+    color: #2563eb !important;
+    font-size: 24px !important;
+}
+
+#addNetworkPreview.has-network {
+    color: #2563eb !important;
+}
+
+/* ==========================================================
+   BULK HEADER
+========================================================== */
+
+.kd-plan-bulk-header {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    gap: 16px !important;
+    margin-bottom: 18px !important;
+}
+
+.kd-plan-bulk-header h3 {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    color: var(--kd-text-main, #0f172a) !important;
+    font-size: 16px !important;
+    font-weight: 900 !important;
+    margin: 0 0 4px !important;
+}
+
+.kd-plan-bulk-header p {
+    margin: 0 !important;
+    color: var(--kd-text-muted, #64748b) !important;
+    font-size: 12px !important;
+    font-weight: 600 !important;
+}
+
+.kd-add-plan-row-btn {
+    height: 44px !important;
+    border: none !important;
+    border-radius: 15px !important;
+    padding: 0 16px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    background: linear-gradient(135deg, #2563eb, #7c3aed) !important;
+    color: #ffffff !important;
+    font-size: 12px !important;
+    font-weight: 900 !important;
+    cursor: pointer !important;
+    box-shadow: 0 12px 24px rgba(37, 99, 235, .22) !important;
+    transition: all .22s ease !important;
+}
+
+.kd-add-plan-row-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 16px 32px rgba(37, 99, 235, .28) !important;
+}
+
+/* ==========================================================
+   BULK ROWS
+========================================================== */
+
+.kd-plan-bulk-list {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+    margin-bottom: 22px !important;
+}
+
+.kd-plan-row {
+    display: grid !important;
+    grid-template-columns: 44px 1fr 44px !important;
+    align-items: start !important;
+    gap: 14px !important;
+    padding: 16px !important;
+    border-radius: 24px !important;
+    background: rgba(248, 250, 252, .82) !important;
+    border: 1px solid rgba(15, 23, 42, .07) !important;
+}
+
+.kd-plan-row-number {
+    width: 44px !important;
+    height: 44px !important;
+    border-radius: 15px !important;
+    display: grid !important;
+    place-items: center !important;
+    background: linear-gradient(135deg, rgba(37, 99, 235, .15), rgba(124, 58, 237, .12)) !important;
+    color: #2563eb !important;
+    font-size: 14px !important;
+    font-weight: 900 !important;
+}
+
+.kd-plan-row-fields {
+    width: 100% !important;
+}
+
+.kd-plan-row .kd-form-group {
+    margin-bottom: 0 !important;
+}
+
+.kd-remove-plan-row-btn {
+    width: 44px !important;
+    height: 44px !important;
+    border: none !important;
+    border-radius: 15px !important;
+    display: grid !important;
+    place-items: center !important;
+    background: rgba(220, 38, 38, .10) !important;
+    color: #dc2626 !important;
+    cursor: pointer !important;
+    font-size: 14px !important;
+    transition: all .22s ease !important;
+}
+
+.kd-remove-plan-row-btn:hover {
+    transform: translateY(-2px) !important;
+    background: rgba(220, 38, 38, .16) !important;
+}
+
+.kd-remove-plan-row-btn:disabled {
+    opacity: .35 !important;
+    cursor: not-allowed !important;
+    transform: none !important;
+}
+
+/* ==========================================================
+   FOOTER
+========================================================== */
+
+.kd-plan-sidebar-footer {
+    flex: 0 0 auto !important;
+    padding: 18px 28px !important;
+    border-top: 1px solid var(--kd-border, rgba(15, 23, 42, .10)) !important;
+    background: var(--kd-card-bg, #ffffff) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: flex-end !important;
+    gap: 12px !important;
+}
+
+.kd-sidebar-cancel-btn,
+.kd-sidebar-submit-btn {
+    height: 50px !important;
+    border: none !important;
+    border-radius: 17px !important;
+    padding: 0 20px !important;
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 9px !important;
+    cursor: pointer !important;
+    font-size: 13px !important;
+    font-weight: 900 !important;
+    transition: all .22s ease !important;
+}
+
+.kd-sidebar-cancel-btn {
+    background: rgba(100, 116, 139, .12) !important;
+    color: var(--kd-text-muted, #64748b) !important;
+}
+
+.kd-sidebar-cancel-btn:hover {
+    background: rgba(100, 116, 139, .18) !important;
+    color: var(--kd-text-main, #0f172a) !important;
+}
+
+.kd-sidebar-submit-btn {
+    background: linear-gradient(135deg, #2563eb, #7c3aed) !important;
+    color: #ffffff !important;
+    box-shadow: 0 14px 28px rgba(37, 99, 235, .24) !important;
+}
+
+.kd-sidebar-submit-btn:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 18px 34px rgba(37, 99, 235, .32) !important;
+}
+
+.kd-sidebar-submit-btn:disabled,
+.kd-sidebar-cancel-btn:disabled {
+    opacity: .75 !important;
+    cursor: not-allowed !important;
+    pointer-events: none !important;
+}
+
+/* ==========================================================
+   DARK MODE
+========================================================== */
+
+html[data-theme="dark"] .kd-plan-sidebar {
+    background: var(--kd-card-bg, #101827) !important;
+    border-left-color: rgba(255, 255, 255, .08) !important;
+}
+
+html[data-theme="dark"] .kd-plan-sidebar-header {
+    background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, .16), transparent 38%),
+        var(--kd-card-bg, #101827) !important;
+}
+
+html[data-theme="dark"] .kd-form-group input,
+html[data-theme="dark"] .kd-form-group select,
+html[data-theme="dark"] .kd-form-group textarea {
+    background: #111827 !important;
+    border-color: rgba(255, 255, 255, .10) !important;
+    color: #ffffff !important;
+}
+
+html[data-theme="dark"] .kd-network-preview-card {
+    background: rgba(37, 99, 235, .08) !important;
+    border-color: rgba(37, 99, 235, .18) !important;
+}
+
+html[data-theme="dark"] .kd-plan-row {
+    background: rgba(15, 23, 42, .78) !important;
+    border-color: rgba(255, 255, 255, .07) !important;
+}
+
+html[data-theme="dark"] .kd-plan-sidebar-footer {
+    background: var(--kd-card-bg, #101827) !important;
+    border-top-color: rgba(255, 255, 255, .08) !important;
+}
+
+/* ==========================================================
+   RESPONSIVE
+========================================================== */
+
+@media (max-width: 768px) {
+    .kd-plan-sidebar {
+        width: 100% !important;
+    }
+
+    .kd-plan-bulk-header {
+        flex-direction: column !important;
+        align-items: stretch !important;
+    }
+
+    .kd-add-plan-row-btn {
+        width: 100% !important;
+    }
+
+    .kd-plan-row {
+        grid-template-columns: 1fr !important;
+    }
+
+    .kd-plan-row-number,
+    .kd-remove-plan-row-btn {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .kd-plan-sidebar-header {
+        padding: 22px 20px 18px !important;
+        min-height: 112px !important;
+    }
+
+    .kd-plan-sidebar-header h2 {
+        font-size: 22px !important;
+    }
+
+    .kd-plan-sidebar-body {
+        padding: 20px !important;
+    }
+
+    .kd-form-row {
+        grid-template-columns: 1fr !important;
+        gap: 0 !important;
+    }
+
+    .kd-plan-row {
+        padding: 14px !important;
+    }
+
+    .kd-plan-sidebar-footer {
+        padding: 15px 20px !important;
+    }
+
+    .kd-sidebar-cancel-btn,
+    .kd-sidebar-submit-btn {
+        flex: 1 !important;
+        padding: 0 12px !important;
+        font-size: 12px !important;
+    }
+}
+
+.kd-readonly-field {
+    background: rgba(37, 99, 235, .06) !important;
+    border-color: rgba(37, 99, 235, .15) !important;
+    color: #2563eb !important;
+    font-weight: 700 !important;
+    cursor: not-allowed;
+}
+
+.kd-delete-modal-backdrop {
+    position: fixed !important;
+    inset: 0 !important;
+    background: rgba(2, 6, 23, .65) !important;
+    backdrop-filter: blur(4px) !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 9999999 !important;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: .25s ease;
+}
+
+.kd-delete-modal-backdrop.show {
+    opacity: 1 !important;
+    visibility: visible !important;
+    pointer-events: auto !important;
+}
+
+.kd-delete-modal-card {
+    width: 420px;
+    max-width: calc(100vw - 30px);
+    background: var(--kd-card-bg);
+    border-radius: 28px;
+    padding: 32px;
+    text-align: center;
+    border: 1px solid var(--kd-border);
+    box-shadow: 0 30px 80px rgba(15, 23, 42, .20);
+}
+
+.kd-delete-modal-icon {
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    margin: 0 auto 18px;
+    display: grid;
+    place-items: center;
+    background: rgba(220, 38, 38, .12);
+    color: #dc2626;
+    font-size: 28px;
+}
+
+.kd-delete-modal-card h3 {
+    font-size: 24px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.kd-delete-modal-card p {
+    color: var(--kd-text-muted);
+    font-size: 14px;
+    line-height: 1.7;
+    margin-bottom: 26px;
+}
+
+.kd-delete-modal-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.kd-delete-cancel-btn,
+.kd-delete-confirm-btn {
+    flex: 1;
+    height: 50px;
+    border: none;
+    border-radius: 16px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.kd-delete-cancel-btn {
+    background: rgba(100,116,139,.12);
+    color: var(--kd-text-main);
+}
+
+.kd-delete-confirm-btn {
+    background: linear-gradient(135deg,#dc2626,#ef4444);
+    color: #fff;
+}

@@ -1,0 +1,503 @@
+/* ==========================================================
+   USERS SIDEBAR CSS
+   File: public/admin/css/admin-user-sidebar.css
+========================================================== */
+
+:root,
+body:not(.dark-mode),
+html:not([data-theme="dark"]) {
+    --usr-sidebar-bg: #ffffff;
+    --usr-sidebar-soft: #f8fafc;
+    --usr-sidebar-border: rgba(15, 23, 42, 0.08);
+    --usr-sidebar-border-strong: rgba(15, 23, 42, 0.14);
+    --usr-sidebar-title: #0f172a;
+    --usr-sidebar-text: #475569;
+    --usr-sidebar-muted: #64748b;
+    --usr-sidebar-primary: #2563eb;
+    --usr-sidebar-primary-hover: #1d4ed8;
+    --usr-sidebar-danger: #dc2626;
+    --usr-sidebar-success: #16a34a;
+    --usr-input-bg: #ffffff;
+    --usr-input-border: rgba(148, 163, 184, 0.24);
+    --usr-input-readonly: #f8fafc;
+}
+
+body.dark-mode,
+html[data-theme="dark"] {
+    --usr-sidebar-bg: #0f172a;
+    --usr-sidebar-soft: #111c31;
+    --usr-sidebar-border: rgba(148, 163, 184, 0.16);
+    --usr-sidebar-border-strong: rgba(148, 163, 184, 0.24);
+    --usr-sidebar-title: #ffffff;
+    --usr-sidebar-text: #d7e4f5;
+    --usr-sidebar-muted: #94a3b8;
+    --usr-sidebar-primary: #3b82f6;
+    --usr-sidebar-primary-hover: #60a5fa;
+    --usr-sidebar-danger: #ef4444;
+    --usr-sidebar-success: #22c55e;
+    --usr-input-bg: #111827;
+    --usr-input-border: rgba(148, 163, 184, 0.2);
+    --usr-input-readonly: #0b1220;
+}
+
+body.kd-sidebar-open {
+    overflow: hidden !important;
+}
+
+/* ==========================================================
+   BACKDROPS
+========================================================== */
+
+#addUserBackdrop,
+#editUserBackdrop,
+#viewUserBackdrop {
+    position: fixed !important;
+    inset: 0 !important;
+    width: 100vw !important;
+    height: 100dvh !important;
+    background: rgba(2, 6, 23, 0.72) !important;
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 2147483645 !important;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity .28s ease, visibility .28s ease;
+}
+
+#addUserBackdrop.active,
+#editUserBackdrop.active,
+#viewUserBackdrop.active {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+}
+
+/* ==========================================================
+   SIDEBARS
+========================================================== */
+
+#addUserSidebar,
+#editUserSidebar,
+#viewUserSidebar {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    width: 580px !important;
+    max-width: 96vw !important;
+    height: 100dvh !important;
+    min-height: 100dvh !important;
+    background: var(--usr-sidebar-bg) !important;
+    z-index: 2147483647 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    box-shadow: -30px 0 80px rgba(0, 0, 0, .28);
+    transform: translateX(105%);
+    transition: transform .35s ease !important;
+    overflow: hidden !important;
+}
+
+#addUserSidebar.active,
+#editUserSidebar.active,
+#viewUserSidebar.active {
+    transform: translateX(0) !important;
+}
+
+/* ==========================================================
+   FORCE ADMIN LAYOUT UNDER DRAWERS
+========================================================== */
+
+body.kd-sidebar-open .kd-footer,
+body.kd-sidebar-open footer,
+body.kd-sidebar-open .kd-topbar,
+body.kd-sidebar-open .kd-navbar,
+body.kd-sidebar-open .kd-sidebar {
+    z-index: 1 !important;
+}
+
+/* ==========================================================
+   HEADER
+========================================================== */
+
+.kd-user-sidebar-header {
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 24px 24px 20px;
+    border-bottom: 1px solid var(--usr-sidebar-border);
+    background: var(--usr-sidebar-bg);
+}
+
+.kd-sidebar-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(37, 99, 235, .10);
+    color: var(--usr-sidebar-primary);
+    font-size: .78rem;
+    font-weight: 800;
+    margin-bottom: 14px;
+}
+
+.kd-user-sidebar-header h4 {
+    margin: 0;
+    color: var(--usr-sidebar-title);
+    font-size: 1.35rem;
+    font-weight: 900;
+}
+
+.kd-user-sidebar-header p {
+    margin: 6px 0 0;
+    color: var(--usr-sidebar-muted);
+    font-size: .88rem;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.kd-sidebar-close {
+    width: 42px;
+    height: 42px;
+    border: 1px solid var(--usr-sidebar-border);
+    border-radius: 12px;
+    background: transparent;
+    color: var(--usr-sidebar-muted);
+    cursor: pointer;
+    flex: 0 0 auto;
+    transition: all .22s ease;
+}
+
+.kd-sidebar-close:hover {
+    color: #ffffff;
+    background: var(--usr-sidebar-danger);
+    border-color: var(--usr-sidebar-danger);
+}
+
+/* ==========================================================
+   FORM / BODY
+========================================================== */
+
+.kd-user-form {
+    flex: 1 1 auto;
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    padding: 24px;
+    background: var(--usr-sidebar-bg);
+}
+
+.kd-user-form::-webkit-scrollbar {
+    width: 7px;
+}
+
+.kd-user-form::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, .35);
+    border-radius: 999px;
+}
+
+.kd-form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.kd-full {
+    grid-column: 1 / -1;
+}
+
+.kd-form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.kd-form-group label {
+    margin-bottom: 8px;
+    color: var(--usr-sidebar-title);
+    font-size: .83rem;
+    font-weight: 800;
+}
+
+.kd-form-group label span {
+    color: var(--usr-sidebar-danger);
+}
+
+.kd-form-group input,
+.kd-form-group select,
+.kd-form-group textarea {
+    width: 100%;
+    border: 1px solid var(--usr-input-border);
+    border-radius: 14px;
+    background: var(--usr-input-bg);
+    color: var(--usr-sidebar-title);
+    font-size: .92rem;
+    font-weight: 600;
+    transition: border-color .22s ease, box-shadow .22s ease, background .22s ease;
+}
+
+.kd-form-group input,
+.kd-form-group select {
+    height: 52px;
+    padding: 0 15px;
+}
+
+.kd-form-group textarea {
+    min-height: 120px;
+    padding: 14px 15px;
+    resize: vertical;
+}
+
+.kd-form-group input::placeholder,
+.kd-form-group textarea::placeholder {
+    color: var(--usr-sidebar-muted);
+}
+
+.kd-form-group input:focus,
+.kd-form-group select:focus,
+.kd-form-group textarea:focus {
+    outline: none;
+    border-color: var(--usr-sidebar-primary);
+    box-shadow: 0 0 0 4px rgba(37, 99, 235, .12);
+}
+
+.kd-form-group input[readonly],
+.kd-form-group textarea[readonly] {
+    background: var(--usr-input-readonly);
+    color: var(--usr-sidebar-text);
+    cursor: default;
+}
+
+/* ==========================================================
+   VIEW USER PROFILE SECTION
+========================================================== */
+
+.kd-view-user-profile {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 18px;
+    margin-bottom: 22px;
+    border: 1px solid var(--usr-sidebar-border);
+    border-radius: 20px;
+    background:
+        radial-gradient(circle at top left, rgba(37, 99, 235, .10), transparent 35%),
+        var(--usr-sidebar-soft);
+}
+
+.kd-view-user-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    flex: 0 0 auto;
+    background: linear-gradient(135deg, #2563eb, #7c3aed);
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 950;
+    box-shadow: 0 14px 30px rgba(37, 99, 235, .18);
+}
+
+.kd-view-user-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.kd-view-user-meta {
+    min-width: 0;
+}
+
+.kd-view-user-meta h3 {
+    margin: 0;
+    color: var(--usr-sidebar-title);
+    font-size: 18px;
+    font-weight: 950;
+    line-height: 1.25;
+}
+
+.kd-view-user-meta p {
+    margin: 5px 0 0;
+    color: var(--usr-sidebar-muted);
+    font-size: 13px;
+    font-weight: 700;
+    word-break: break-word;
+}
+
+.kd-view-info-card {
+    border: 1px solid var(--usr-sidebar-border);
+    border-radius: 18px;
+    background: var(--usr-sidebar-soft);
+    padding: 16px;
+}
+
+.kd-view-info-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 13px 0;
+    border-bottom: 1px solid var(--usr-sidebar-border);
+}
+
+.kd-view-info-row:first-child {
+    padding-top: 0;
+}
+
+.kd-view-info-row:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.kd-view-info-row span {
+    color: var(--usr-sidebar-muted);
+    font-size: 12px;
+    font-weight: 850;
+    text-transform: uppercase;
+    flex: 0 0 130px;
+}
+
+.kd-view-info-row strong {
+    color: var(--usr-sidebar-title);
+    font-size: 13px;
+    font-weight: 850;
+    text-align: right;
+    word-break: break-word;
+}
+
+/* ==========================================================
+   STATUS PILL FOR VIEW SIDEBAR
+========================================================== */
+
+.kd-status-pill {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 30px;
+    padding: 5px 13px;
+    border-radius: 999px;
+    font-size: 10.5px;
+    font-weight: 950;
+    text-transform: uppercase;
+}
+
+.kd-status-pill.active {
+    background: rgba(22, 163, 74, .13);
+    color: var(--usr-sidebar-success);
+}
+
+.kd-status-pill.inactive {
+    background: rgba(234, 88, 12, .13);
+    color: #ea580c;
+}
+
+.kd-status-pill.suspended {
+    background: rgba(220, 38, 38, .13);
+    color: var(--usr-sidebar-danger);
+}
+
+/* ==========================================================
+   FOOTER INSIDE SIDEBAR - ALWAYS BOTTOM
+========================================================== */
+
+.kd-sidebar-footer {
+    margin-top: auto;
+    flex: 0 0 auto;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 12px;
+    padding: 20px 0 0;
+    border-top: 1px solid var(--usr-sidebar-border);
+    background: var(--usr-sidebar-bg);
+    position: sticky;
+    bottom: 0;
+    z-index: 10;
+}
+
+.kd-btn-cancel,
+.kd-btn-save {
+    height: 48px;
+    padding: 0 20px;
+    border-radius: 12px;
+    font-weight: 800;
+    cursor: pointer;
+    transition: all .22s ease;
+}
+
+.kd-btn-cancel {
+    border: 1px solid var(--usr-sidebar-border);
+    background: transparent;
+    color: var(--usr-sidebar-text);
+}
+
+.kd-btn-cancel:hover {
+    background: var(--usr-sidebar-soft);
+}
+
+.kd-btn-save {
+    border: none;
+    background: var(--usr-sidebar-primary);
+    color: #ffffff;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+}
+
+.kd-btn-save:hover {
+    background: var(--usr-sidebar-primary-hover);
+}
+
+.kd-btn-save:disabled {
+    opacity: .75;
+    cursor: not-allowed;
+}
+
+/* ==========================================================
+   MOBILE
+========================================================== */
+
+@media (max-width: 768px) {
+    #addUserSidebar,
+    #editUserSidebar,
+    #viewUserSidebar {
+        width: 100% !important;
+        max-width: 100vw !important;
+    }
+
+    .kd-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .kd-full {
+        grid-column: auto;
+    }
+
+    .kd-user-form {
+        padding: 20px;
+    }
+
+    .kd-sidebar-footer {
+        padding-top: 18px;
+    }
+
+    .kd-view-info-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .kd-view-info-row span {
+        flex: unset;
+    }
+
+    .kd-view-info-row strong {
+        text-align: left;
+    }
+}
